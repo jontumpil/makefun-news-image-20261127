@@ -604,11 +604,11 @@ def draw_timeline(cv, x, y, w, h, events):
 
 SCENE_CARDS = [
     ("kuwait", "No.1 KUWAIT: DRONE STRIKE KILLS TWO ITALIANS"),
-    ("chess", "No.23 GENEVA: GUKESH HOLDS SINDAROV IN GAME 3"),
-    ("ballot", "No.36 WELLINGTON: NZ ELECTION DEADLOCKED 65-65"),
+    ("chess", "No.17 GENEVA: GUKESH HOLDS SINDAROV IN GAME 3"),
+    ("ballot", "No.33 WELLINGTON: NZ ELECTION DEADLOCKED 65-65"),
     ("jazan", "No.4 JAZAN: REFINERY STRIKE KILLS ONE WORKER"),
-    ("tanker", "No.8 IBIZA: TANKER CAPSIZES, ONE DEAD"),
-    ("storm", "No.18 USA: THANKSGIVING STORM FLOODS COASTS"),
+    ("tanker", "No.7 IBIZA: TANKER CAPSIZES, ONE DEAD"),
+    ("storm", "No.12 USA: THANKSGIVING STORM FLOODS COASTS"),
 ]
 
 
@@ -726,7 +726,8 @@ def render(stories, title, date_check):
     # Masthead.
     mt = "THE WORLD IN ONE DAY"
     text5(cv, (W - text5_w(mt, 3)) // 2, 8, mt, INK, 3)
-    sub = "FRIDAY 27 NOVEMBER 2026  -  46 STORIES  -  7 REGIONS  -  MORNING EDITION"
+    n_regions = len({s["region"] for s in stories})
+    sub = "FRIDAY 27 NOVEMBER 2026  -  %d STORIES  -  %d REGIONS  -  MORNING EDITION" % (len(stories), n_regions)
     text5(cv, (W - text5_w(sub, 1)) // 2, 36, sub, INK, 1)
     cv.rect(12, 50, W - 24, 2, INK)
     cv.rect(12, 54, W - 24, 1, INK)
@@ -770,7 +771,7 @@ def render(stories, title, date_check):
                 cur_region = st["region"]
             y += draw_story(cv, col_x[gi], y, st)
     # Footer.
-    foot = "THE WORLD IN ONE DAY - 27 NOVEMBER 2026 - ALL 46 STORIES VERIFIED PUBLISHED 27 NOV 2026"
+    foot = "THE WORLD IN ONE DAY - 27 NOVEMBER 2026 - ALL %d STORIES VERIFIED PUBLISHED 27 NOV 2026" % len(stories)
     text4(cv, (W - text4_w(foot)) // 2, 1018, foot, GREY)
     return bytes(cv.px)
 

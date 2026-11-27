@@ -3,13 +3,20 @@
 # named source. Summaries are written from the source articles, 40-55 words.
 # Tags: CONFIRMED = reported by two or more outlets or an official source;
 # REPORTED = single-source report. All text is plain ASCII for the renderer.
+# Revision r2: coverage widened from 7 to 11 regions (Latin America and
+# Central Asia added; East Asia & Pacific split into Southeast Asia, East
+# Asia and Oceania); four soft items dropped to make room.
 
 REGIONS = [
     "MIDDLE EAST",
     "EUROPE",
     "NORTH AMERICA",
+    "LATIN AMERICA",
     "SOUTH ASIA",
-    "EAST ASIA & PACIFIC",
+    "CENTRAL ASIA",
+    "SOUTHEAST ASIA",
+    "EAST ASIA",
+    "OCEANIA",
     "AFRICA",
     "GLOBAL",
 ]
@@ -21,7 +28,7 @@ STORIES = [
     {
         "id": 1,
         "region": "MIDDLE EAST",
-        "headline": "TWO ITALIANS KILLED IN KUWAIT DRONE STRIKE BLAMED ON IRAN",
+        "headline": "TWO ITALIANS KILLED IN KUWAIT DRONE STRIKE",
         "source": "BBC / NYT",
         "tag": "CONFIRMED",
         "utc": "01:03",
@@ -51,7 +58,7 @@ STORIES = [
     {
         "id": 4,
         "region": "MIDDLE EAST",
-        "headline": "ATTACK ON SAUDI ARAMCO'S JAZAN REFINERY KILLS WORKER",
+        "headline": "PROJECTILE STRIKE ON JAZAN REFINERY KILLS WORKER",
         "source": "REUTERS",
         "tag": "CONFIRMED",
         "utc": "02:26",
@@ -81,16 +88,6 @@ STORIES = [
     {
         "id": 7,
         "region": "EUROPE",
-        "headline": "DEPARDIEU TO STAND TRIAL FOR ALLEGED RAPE OF ACTRESS IN 2018",
-        "source": "BBC",
-        "tag": "CONFIRMED",
-        "utc": "02:11",
-        "scene": "",
-        "summary": "A French court ruled that actor Gerard Depardieu will stand trial over the alleged rape of an actress in 2018, the BBC reported. The 77-year-old, one of France's best-known film stars, denies the allegation. The decision follows years of legal battles and a string of sexual assault claims.",
-    },
-    {
-        "id": 8,
-        "region": "EUROPE",
         "headline": "DIESEL TANKER CAPSIZES NEAR IBIZA, KILLING ONE",
         "source": "BBC",
         "tag": "CONFIRMED",
@@ -99,17 +96,7 @@ STORIES = [
         "summary": "A diesel tanker carrying up to 7,000 tonnes capsized off the coast of Ibiza, killing one crew member, the BBC reported. Rescue teams searched the waters around the stricken vessel as authorities assessed the risk of a fuel spill in the busy Mediterranean tourist area.",
     },
     {
-        "id": 9,
-        "region": "EUROPE",
-        "headline": "UK TO PAY 'PARTICIPATION' FEE TO DELIVER EU DEALS",
-        "source": "BBC",
-        "tag": "CONFIRMED",
-        "utc": "04:47",
-        "scene": "",
-        "summary": "Britain will pay a participation fee to the European Union to deliver post-Brexit agreements, the BBC reported. The payment covers UK involvement in EU programmes and shared arrangements. The deal marks another step in the reset of relations between London and Brussels.",
-    },
-    {
-        "id": 10,
+        "id": 8,
         "region": "EUROPE",
         "headline": "UK LEADERS WARNED OVER CLIMATE DENIAL AS WORLD TOPS 2C FOR SIX DAYS",
         "source": "EUROPESAYS",
@@ -118,11 +105,8 @@ STORIES = [
         "scene": "",
         "summary": "British political leaders were warned that denying climate change is beyond irresponsible after global temperatures ran more than 2C above pre-industrial levels for six consecutive days, a first. Copernicus data put the peak at 2.24C. Campaigners said misinformation risks blocking action.",
     },
-]
-
-STORIES += [
     {
-        "id": 11,
+        "id": 9,
         "region": "EUROPE",
         "headline": "BAYERN SUFFER FIRST DEFEAT OF SEASON AT LILLE",
         "source": "BAVARIAN FOOTBALL WORKS",
@@ -132,27 +116,7 @@ STORIES += [
         "summary": "Bayern Munich lost 2-1 to LOSC Lille in the Champions League, their first defeat of the season. The German champions blamed injuries, but analysts said the excuses could not hide a toothless display. Lille's win shook up the group and ended Bayern's unbeaten run.",
     },
     {
-        "id": 12,
-        "region": "EUROPE",
-        "headline": "FERRARI BOSS SETS HAMILTON AND LECLERC CLEAR TARGET AFTER CLASH",
-        "source": "RACINGNEWS365",
-        "tag": "CONFIRMED",
-        "utc": "01:06",
-        "scene": "",
-        "summary": "Ferrari's team principal set Lewis Hamilton and Charles Leclerc a clear target after their latest on-track clash, RacingNews365 reported. The pair have collided more than once this season, straining relations inside the team. Ferrari wants both drivers focused on the constructors' fight.",
-    },
-    {
-        "id": 13,
-        "region": "EUROPE",
-        "headline": "HUW EDWARDS GIVES FIRST INTERVIEWS SINCE CONVICTION",
-        "source": "BBC",
-        "tag": "CONFIRMED",
-        "utc": "02:06",
-        "scene": "",
-        "summary": "Former BBC newsreader Huw Edwards has given his first interviews since his conviction over child abuse images, the BBC reported. Edwards, once the corporation's highest-paid presenter, pleaded guilty last year. His return has reopened debate about the BBC's handling of the scandal.",
-    },
-    {
-        "id": 14,
+        "id": 10,
         "region": "NORTH AMERICA",
         "headline": "TRUMP DEMANDS PROBE INTO 'FAKE' US GDP FIGURES",
         "source": "MINT",
@@ -162,17 +126,7 @@ STORIES += [
         "summary": "President Donald Trump demanded an investigation after the Commerce Department revised third-quarter GDP growth up to 4.3 percent from 3.4 percent. Trump alleged without evidence that federal statisticians understated performance before the November 3 elections, in which Democrats captured Congress.",
     },
     {
-        "id": 15,
-        "region": "NORTH AMERICA",
-        "headline": "AWKWARD MOMENT AS TRUMP INVITES MARINE TO QUIZ MELANIA",
-        "source": "DAILY MAIL",
-        "tag": "CONFIRMED",
-        "utc": "00:01",
-        "scene": "",
-        "summary": "Donald Trump faced an awkward moment on his Thanksgiving call with US troops when he invited a Marine to ask Melania Trump a question, but was told there were none. He took calls from troops at Mar-a-Lago, praising Melania's work reuniting Russian and Ukrainian children.",
-    },
-    {
-        "id": 16,
+        "id": 11,
         "region": "NORTH AMERICA",
         "headline": "DEMOCRATS' PLAN TO END FUNDING FOR IRAN WAR",
         "source": "THE HILL",
@@ -182,17 +136,7 @@ STORIES += [
         "summary": "Incoming Democratic majorities in Congress plan to cut off funding for the US war with Iran, launched by President Trump nine months ago, The Hill reported. Ending the war is a top priority for the new majorities, though what comes next for US policy in the region remains unresolved.",
     },
     {
-        "id": 17,
-        "region": "NORTH AMERICA",
-        "headline": "STROBE TALBOTT, CLINTON-ERA FOREIGN POLICY ARCHITECT, DIES AT 80",
-        "source": "WASHINGTON POST",
-        "tag": "CONFIRMED",
-        "utc": "01:00",
-        "scene": "",
-        "summary": "Strobe Talbott, the journalist who became a key architect of Bill Clinton's foreign policy as deputy secretary of state, has died aged 80. Talbott helped shape US policy towards Russia after the Cold War and later led the Brookings Institution. Colleagues praised his intellect and diplomacy.",
-    },
-    {
-        "id": 18,
+        "id": 12,
         "region": "NORTH AMERICA",
         "headline": "THANKSGIVING STORM BRINGS FLOODING AND FLIGHT DELAYS ACROSS US",
         "source": "BBC",
@@ -202,7 +146,7 @@ STORIES += [
         "summary": "A major Thanksgiving storm brought flooding, flight delays and power cuts to hundreds of thousands of customers on both US coasts. Wind gusts tore roofs off buildings and downed trees, while heavy rain swamped streets. Airports reported long delays as the storm disrupted holiday travel.",
     },
     {
-        "id": 19,
+        "id": 13,
         "region": "NORTH AMERICA",
         "headline": "MUSK: EVERY US CHILD WILL GET TWO SPACEX SHARES",
         "source": "THE HINDU",
@@ -212,27 +156,37 @@ STORIES += [
         "summary": "Elon Musk said every child in the United States will receive two SpaceX shares through the Trump Accounts programme, in a gift that could be worth about 18.5 billion dollars. Parents must hold an active Trump Account for their child. The pledge links the space firm's growth to family savings.",
     },
     {
-        "id": 20,
-        "region": "NORTH AMERICA",
-        "headline": "ANTHROPIC'S CLAUDE NOW TURNS ARTIFACTS INTO APPS",
-        "source": "MASHABLE",
+        "id": 14,
+        "region": "LATIN AMERICA",
+        "headline": "BRAZIL DROPS MILEI FROM LULA INAUGURATION LIST",
+        "source": "DAINIK JAGRAN / GROUND NEWS",
         "tag": "CONFIRMED",
-        "utc": "01:38",
+        "utc": "15:30",
         "scene": "",
-        "summary": "Anthropic's Claude can now turn artifacts into working apps, Mashable reported. The update lets users convert documents, designs and code the chatbot produces into shareable applications without extra tools. The move deepens the race among AI labs to turn chatbots into software builders.",
+        "summary": "Brazil has excluded Argentine President Javier Milei from the guest list for Lula da Silva's January 5 inauguration and permanently withdrawn its ambassador from Buenos Aires. Foreign Minister Pablo Quirno said Argentina had received no official confirmation, while adviser Celso Amorim floated inviting another Argentine representative.",
     },
     {
-        "id": 21,
-        "region": "NORTH AMERICA",
-        "headline": "APPLE ENTERS THE AI AGENT RACE",
-        "source": "BARCHART",
+        "id": 15,
+        "region": "LATIN AMERICA",
+        "headline": "VENEZUELA MOVES TO REPEAL LAW THAT JAILED SANCTIONS BACKERS",
+        "source": "FRANCE 24 / SEMANA",
         "tag": "CONFIRMED",
-        "utc": "01:00",
+        "utc": "13:10",
         "scene": "",
-        "summary": "Apple has entered the AI agent race, taking on OpenAI, Anthropic and Meta, Barchart reported. The iPhone maker is building agents that can act on users' behalf across its devices and services. Investors watched closely as the contest for the next computing platform heats up.",
+        "summary": "Venezuela's parliament president Jorge Rodriguez announced plans to repeal the Ley Organica Libertador Simon Bolivar, which punished advocacy for sanctions against the country with up to 30 years in prison. State oil firm PDVSA separately confirmed a fire at the Amuay refinery on November 26 caused no injuries and no fuel supply impact.",
     },
     {
-        "id": 23,
+        "id": 16,
+        "region": "LATIN AMERICA",
+        "headline": "RIO POLICE ARREST OFFICER ACCUSED OF LEADING MILITIA",
+        "source": "RIO TIMES",
+        "tag": "REPORTED",
+        "utc": "16:20",
+        "scene": "",
+        "summary": "Rio de Janeiro's civil police arrested a military police officer known as Capitao Leo on November 27, saying he helps lead a militia linked to several homicides. The arrest is the latest blow against the armed groups that control swathes of the city through extortion, illegal services and violence against residents.",
+    },
+    {
+        "id": 17,
         "region": "SOUTH ASIA",
         "headline": "GUKESH, SINDAROV PLAY OUT MARATHON DRAW IN GAME 3",
         "source": "FIDE / INDIA TODAY",
@@ -242,20 +196,17 @@ STORIES += [
         "summary": "World champion D Gukesh held challenger Javokhir Sindarov to a draw in a 60-move Game 3 of the world title match in Geneva. Gukesh's Rio de Janeiro Variation gave him a 50-minute lead, but Sindarov survived, making his 40th move with six seconds to spare. The match is level at 1.5-1.5.",
     },
     {
-        "id": 24,
+        "id": 18,
         "region": "SOUTH ASIA",
-        "headline": "JUDICIAL MEMBER MUST SIT TO CONFIRM PMLA ATTACHMENT, SAYS TOP COURT",
+        "headline": "TOP COURT: JUDICIAL MEMBER MUST SIT ON PMLA BENCH",
         "source": "TOI",
         "tag": "CONFIRMED",
         "utc": "03:46",
         "scene": "gavel",
-        "summary": "India's Supreme Court ruled that a judicial member must sit on the bench to confirm an attachment under the Prevention of Money Laundering Act. The decision clarifies the composition of the tribunal in money-laundering cases and could affect pending confiscation proceedings against accused persons and companies.",
+        "summary": "India's Supreme Court ruled that a judicial member must sit on the bench to confirm an attachment under the Prevention of Money Laundering Act. The decision clarifies the tribunal's composition in money-laundering cases and could affect pending confiscation proceedings against accused persons and companies.",
     },
-]
-
-STORIES += [
     {
-        "id": 25,
+        "id": 19,
         "region": "SOUTH ASIA",
         "headline": "BIHAR MOVE ILLEGAL, SAYS TOP COURT, QUASHES ANAND MOHAN RELEASE",
         "source": "TOI",
@@ -265,67 +216,17 @@ STORIES += [
         "summary": "The Supreme Court quashed the premature release of former MP Anand Mohan, ruling that Bihar's move to free him was illegal. Mohan was convicted in the 1994 murder of a district magistrate. The verdict overturned the state government's remission order and sent him back to prison.",
     },
     {
-        "id": 26,
+        "id": 20,
         "region": "SOUTH ASIA",
-        "headline": "SPECIAL SITTING OF PARLIAMENT FROM NOV 30; DELIMITATION, WOMEN'S QUOTA ON CARDS",
+        "headline": "PARLIAMENT TO SIT SPECIALLY FROM NOV 30",
         "source": "THEPRINT / NIE",
         "tag": "CONFIRMED",
         "utc": "01:15",
         "scene": "",
-        "summary": "Parliament will reconvene from November 30 for a special sitting that could take up delimitation and the women's reservation quota, ThePrint reported. The Congress accused the Modi government of seeking a super-tainted two-thirds majority to push through its agenda. The session is expected to be stormy.",
+        "summary": "Parliament will reconvene in New Delhi from November 30 for a special sitting that could take up delimitation and the women's reservation quota, ThePrint reported. The Congress accused the Modi government of seeking a super-tainted two-thirds majority to push through its agenda.",
     },
     {
-        "id": 27,
-        "region": "SOUTH ASIA",
-        "headline": "UNION CABINET APPROVES RS 11,000 CRORE CONSTRUCTION EQUIPMENT SCHEME",
-        "source": "NEWS ON AIR",
-        "tag": "CONFIRMED",
-        "utc": "02:36",
-        "scene": "",
-        "summary": "The Union Cabinet approved an 11,000-crore-rupee scheme to boost domestic manufacturing of construction equipment, News On AIR reported. The plan aims to cut imports, create jobs and support India's infrastructure push. Officials said local makers would gain scale to compete globally.",
-    },
-    {
-        "id": 28,
-        "region": "SOUTH ASIA",
-        "headline": "GST REGISTRATION CANCELLATIONS TO GO AUTOMATIC FROM 1 DECEMBER",
-        "source": "MINT",
-        "tag": "CONFIRMED",
-        "utc": "00:05",
-        "scene": "",
-        "summary": "Cancellations of GST registrations will become automatic from December 1, Mint reported. The change is meant to cut paperwork and speed up exits for businesses that have shut down for good. Tax officials said the system will flag dormant registrations for removal without lengthy manual checks.",
-    },
-    {
-        "id": 29,
-        "region": "SOUTH ASIA",
-        "headline": "CHINA'S DRONES ARE RESHAPING ASIA'S MILITARIES",
-        "source": "MINT",
-        "tag": "CONFIRMED",
-        "utc": "02:55",
-        "scene": "",
-        "summary": "China's drones are reshaping the militaries of Asia, Mint reported, as armed forces from Tokyo to New Delhi race to field unmanned systems. Cheap, capable drones have changed the cost of air power and surveillance, forcing neighbours to rewrite doctrine and buy counter-drone defences.",
-    },
-    {
-        "id": 30,
-        "region": "SOUTH ASIA",
-        "headline": "KASHMIR CLERICS SPLIT OVER VANDE MATARAM",
-        "source": "TOI",
-        "tag": "CONFIRMED",
-        "utc": "00:05",
-        "scene": "",
-        "summary": "Muslim clerics in Kashmir split over the singing of Vande Mataram, The Times of India reported. The row reflects wider debate over the national song in schools and public functions. Some clerics backed the song as patriotic, while others objected on religious grounds, leaving leaders divided.",
-    },
-    {
-        "id": 31,
-        "region": "SOUTH ASIA",
-        "headline": "HIGH COURT SETS ASIDE UP BJP LEGISLATOR'S ELECTION",
-        "source": "REDIFF",
-        "tag": "CONFIRMED",
-        "utc": "01:25",
-        "scene": "",
-        "summary": "The High Court set aside the election of a BJP legislator from Uttar Pradesh over anomalies in his nomination papers, Rediff reported. The ruling strips the lawmaker of his seat and could trigger a by-election. The legislator is expected to appeal against the verdict in the Supreme Court.",
-    },
-    {
-        "id": 32,
+        "id": 21,
         "region": "SOUTH ASIA",
         "headline": "RBI REPATRIATES ANOTHER 60 TONNES OF GOLD IN 2026",
         "source": "KITCO",
@@ -335,7 +236,7 @@ STORIES += [
         "summary": "India's central bank repatriated another 60 tonnes of gold in 2026, Kitco reported, taking its total holdings held at home higher. Gold's share of foreign exchange reserves fell to 14.38 percent. Central banks worldwide have been buying gold as a hedge against currency and geopolitical risk.",
     },
     {
-        "id": 33,
+        "id": 22,
         "region": "SOUTH ASIA",
         "headline": "INDIA WEAKENED PAK IN 1971, DID NOT HELP BENGALIS: BANGLADESH SPEAKER",
         "source": "INDIA TODAY",
@@ -345,41 +246,28 @@ STORIES += [
         "summary": "Bangladesh's Speaker said India weakened Pakistan in the 1971 war but did not help Bengalis, India Today reported. The remark stirred debate in Dhaka about India's role in Bangladesh's independence. Historians note Indian troops fought alongside Bengali freedom fighters in the war.",
     },
     {
-        "id": 34,
-        "region": "SOUTH ASIA",
-        "headline": "'RAMAYANA' BOX OFFICE SLOWS ON DAY 22",
-        "source": "TOI",
+        "id": 23,
+        "region": "CENTRAL ASIA",
+        "headline": "UZBEKISTAN AND KAZAKHSTAN REOPEN BUSIEST BORDER CROSSING",
+        "source": "DAILY FOX NEWS / UZA",
         "tag": "CONFIRMED",
-        "utc": "00:05",
+        "utc": "14:23",
         "scene": "",
-        "summary": "Ranbir Kapoor's Ramayana slowed at the box office on its 22nd day, slipping to single-digit collections, The Times of India reported. The epic, also starring Yash and Sai Pallavi, remains one of the year's biggest Indian films. Trade watchers said the run is winding down after a strong opening.",
+        "summary": "Uzbekistan and Kazakhstan have reopened the Gishtkuprik-Zhibek Zholy border crossing after a two-year rebuild, with terminals built for 70,000 travellers a day and up to 100,000 at peak periods. Bilateral trade reached 4.4 billion dollars in the first ten months of 2026, up 20 percent.",
     },
     {
-        "id": 35,
-        "region": "SOUTH ASIA",
-        "headline": "RISHABH PANT TURNS UP IN NZ CLUB CRICKET UNDER FALSE NAME: REPORT",
-        "source": "BDNEWS24",
-        "tag": "REPORTED",
-        "utc": "02:43",
-        "scene": "",
-        "summary": "Indian wicketkeeper Rishabh Pant reportedly turned up for a New Zealand club cricket match under a false name, Bdnews24 reported. The appearance surprised local players, who recognised the star. Pant is recovering match fitness ahead of India's home season, though the board has not commented.",
-    },
-    {
-        "id": 36,
-        "region": "EAST ASIA & PACIFIC",
-        "headline": "COALITION LOSES MAJORITY AS FINAL COUNT DELIVERS DEADLOCK",
-        "source": "FARMERS WEEKLY",
+        "id": 24,
+        "region": "CENTRAL ASIA",
+        "headline": "FIVE CENTRAL ASIAN STATES LAUNCH HEALTH ROADMAP IN TASHKENT",
+        "source": "WHO",
         "tag": "CONFIRMED",
-        "utc": "01:00",
-        "scene": "ballot",
-        "summary": "New Zealand's final election count erased the coalition's majority, leaving a 65-65 deadlock in the 130-seat Parliament. National, ACT and New Zealand First hold 65 seats, the same as Labour, the Greens, Te Pati Maori and Opportunity combined. Luxon must now court Opportunity's Qiulae Wong.",
+        "utc": "07:00",
+        "scene": "",
+        "summary": "Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan launched a second roadmap for health and well-being in Central Asia, covering 2026 to 2030, at a ministerial event in Tashkent. The WHO-backed plan targets primary care, health workers, outbreaks and climate risks for 85 million people across the five countries.",
     },
-]
-
-STORIES += [
     {
-        "id": 37,
-        "region": "EAST ASIA & PACIFIC",
+        "id": 25,
+        "region": "SOUTHEAST ASIA",
         "headline": "JCI RISES, BUT FOREIGN INVESTORS SELL HEAVILY",
         "source": "JAWAWA",
         "tag": "CONFIRMED",
@@ -388,8 +276,8 @@ STORIES += [
         "summary": "Indonesia's Composite Stock Price Index rose 0.86 percent to 5,242.17 at Thursday's close, rebounding from the previous day's fall. Foreign investors were net buyers of 238.90 billion rupiah overall, but sold heavily in 10 stocks, led by Adaro Andalan at 60.83 billion rupiah and Telkom at 55.41 billion.",
     },
     {
-        "id": 38,
-        "region": "EAST ASIA & PACIFIC",
+        "id": 26,
+        "region": "SOUTHEAST ASIA",
         "headline": "INDONESIA GOLD MINE TOLL RISES TO 13",
         "source": "ZAKA",
         "tag": "CONFIRMED",
@@ -398,8 +286,38 @@ STORIES += [
         "summary": "At least 13 miners have died after floodwaters submerged an illegal gold mine pit in West Java, officials said. Rescue teams kept searching the flooded shaft for more miners still trapped underground, while the search continued through the morning for those unaccounted for.",
     },
     {
-        "id": 39,
-        "region": "EAST ASIA & PACIFIC",
+        "id": 27,
+        "region": "SOUTHEAST ASIA",
+        "headline": "MYANMAR JUNTA REJECTS ASEAN CURBS AFTER MANILA SUMMIT",
+        "source": "ASEANS",
+        "tag": "REPORTED",
+        "utc": "09:40",
+        "scene": "",
+        "summary": "Myanmar's military administration rejected ASEAN's decision to keep curbs on its summit representation, after leaders at the 49th ASEAN Summit in Manila said full participation needs measurable progress on the bloc's five-point peace consensus. Indonesia backed the International Court of Justice ruling on the Rohingya.",
+    },
+    {
+        "id": 28,
+        "region": "SOUTHEAST ASIA",
+        "headline": "ROUGH SEAS FORCE SMALL BOATS ASHORE ACROSS SOUTHEAST ASIA",
+        "source": "TRAVEL AND TOUR WORLD",
+        "tag": "REPORTED",
+        "utc": "06:30",
+        "scene": "",
+        "summary": "Thailand advised small boats to stay ashore from November 28 to 30 as monsoon seas build, forecasting waves of two to three metres in the lower Gulf of Thailand. Malaysia warned of winds up to 50 kilometres an hour and 3.5-metre waves, while Vietnam forecast offshore waves reaching five metres.",
+    },
+    {
+        "id": 29,
+        "region": "EAST ASIA",
+        "headline": "CHINA'S DRONES ARE RESHAPING ASIA'S MILITARIES",
+        "source": "MINT",
+        "tag": "CONFIRMED",
+        "utc": "02:55",
+        "scene": "",
+        "summary": "China's drones are reshaping the militaries of Asia, Mint reported, as armed forces from Tokyo to New Delhi race to field unmanned systems. Cheap, capable drones have changed the cost of air power and surveillance, forcing neighbours to rewrite doctrine and buy counter-drone defences.",
+    },
+    {
+        "id": 30,
+        "region": "EAST ASIA",
         "headline": "TOKYO CPI STEADY AT 2.8% AS YEN SLIDES TO 159.35",
         "source": "FINSCANS",
         "tag": "CONFIRMED",
@@ -408,8 +326,38 @@ STORIES += [
         "summary": "Tokyo's headline inflation held steady at 2.8 percent in November, keeping pressure on the Bank of Japan over its monetary policy. The yen slipped to 159.35 against the dollar after softer-than-expected core data, though traders stayed alert to intervention threats and rate-hike expectations.",
     },
     {
-        "id": 40,
-        "region": "EAST ASIA & PACIFIC",
+        "id": 31,
+        "region": "EAST ASIA",
+        "headline": "CHINA TESTS NEW TAIWAN LANDING TACTICS IN COASTAL DRILLS",
+        "source": "ARCHIPELAGO EXPAT",
+        "tag": "REPORTED",
+        "utc": "08:15",
+        "scene": "",
+        "summary": "China's military has tested new Taiwan landing tactics in coastal drills, according to reports carried by regional news trackers on November 27. The exercises are the latest in a series of operations around the self-ruled island that Beijing claims as its territory, and they drew close monitoring from Taiwan's defence ministry.",
+    },
+    {
+        "id": 32,
+        "region": "EAST ASIA",
+        "headline": "SEOUL REPATRIATES SIX NORTH KOREANS FROM DRIFTING BOAT",
+        "source": "ARCHIPELAGO EXPAT",
+        "tag": "REPORTED",
+        "utc": "05:40",
+        "scene": "",
+        "summary": "South Korea has repatriated six North Koreans found aboard a drifting fishing boat, regional trackers reported on November 27. Seoul routinely returns fishermen who drift south across the maritime border when they wish to go home, a practice that continues despite frozen ties between the two Koreas.",
+    },
+    {
+        "id": 33,
+        "region": "OCEANIA",
+        "headline": "COALITION LOSES MAJORITY AS FINAL COUNT DELIVERS DEADLOCK",
+        "source": "FARMERS WEEKLY",
+        "tag": "CONFIRMED",
+        "utc": "01:00",
+        "scene": "ballot",
+        "summary": "New Zealand's final election count erased the coalition's majority, leaving a 65-65 deadlock in the 130-seat Parliament. National, ACT and New Zealand First hold 65 seats, the same as Labour, the Greens, Te Pati Maori and Opportunity combined. Luxon must now court Opportunity's Qiulae Wong.",
+    },
+    {
+        "id": 34,
+        "region": "OCEANIA",
         "headline": "CRICKET AUSTRALIA BALL-TAMPERING FORUM TO INCLUDE 2017-18 ASHES",
         "source": "THE GUARDIAN",
         "tag": "CONFIRMED",
@@ -418,7 +366,27 @@ STORIES += [
         "summary": "Cricket Australia's ball-tampering forum will include the 2017-18 Ashes series, The Guardian reported, widening a review that began with the sandpapergate scandal. There will be no sanctions and no recrimination, officials said, as the sport seeks to draw a line under a dark episode.",
     },
     {
-        "id": 41,
+        "id": 35,
+        "region": "OCEANIA",
+        "headline": "AUSTRALIA SIGNS SECURITY TREATY WITH SOLOMON ISLANDS",
+        "source": "AIIA / HARAVA",
+        "tag": "CONFIRMED",
+        "utc": "05:00",
+        "scene": "",
+        "summary": "Australia and Solomon Islands signed a treaty in Canberra naming Australia the Pacific nation's primary security partner and ruling out foreign military bases, with A$740 million in Australian support over a decade. Prime Ministers Anthony Albanese and Matthew Wale also agreed closer policing, education and labour ties.",
+    },
+    {
+        "id": 36,
+        "region": "OCEANIA",
+        "headline": "FIJI-AUSTRALIA MUTUAL DEFENCE PACT ENTERS INTO FORCE",
+        "source": "AIIA",
+        "tag": "CONFIRMED",
+        "utc": "04:30",
+        "scene": "",
+        "summary": "Fiji and Australia brought their Vuvale Union and Veitacini Treaty into force this week, making Fiji Australia's fourth formal ally under a mutual defence pact backed by more than 1 billion dollars over a decade. Each country commits to act if the other is attacked in the Pacific.",
+    },
+    {
+        "id": 37,
         "region": "AFRICA",
         "headline": "AFENYO-MARKIN QUESTIONS OSP OVER ALLEGED TRANSFER OF FROZEN FUNDS",
         "source": "GHANAWEB",
@@ -428,7 +396,7 @@ STORIES += [
         "summary": "Ghana's Alexander Afenyo-Markin questioned the Office of the Special Prosecutor over the alleged transfer of frozen funds, GhanaWeb reported. The opposition figure demanded answers on how the money moved and who authorised it. The case adds to scrutiny of the anti-graft body's handling of high-profile funds.",
     },
     {
-        "id": 42,
+        "id": 38,
         "region": "AFRICA",
         "headline": "FAKE EMERGENCY CALLS HIT 57M IN 2025, SAYS NCC",
         "source": "PUNCH",
@@ -438,7 +406,7 @@ STORIES += [
         "summary": "Fake emergency calls in Nigeria hit 57 million in 2025, the Nigerian Communications Commission said. The flood of prank and false calls clogs lines meant for real crises and wastes responders' time. The regulator urged the public to stop abusing the service and warned of penalties.",
     },
     {
-        "id": 43,
+        "id": 39,
         "region": "GLOBAL",
         "headline": "GOLD SLIPS TO $3,565 AS HAWKISH FED SIGNALS BITE",
         "source": "FINSCANS",
@@ -448,7 +416,7 @@ STORIES += [
         "summary": "Gold slipped to 3,565 dollars an ounce as hawkish Federal Reserve signals and rising rate-hike expectations lifted the dollar. The metal stayed below its 100-day moving average, with traders watching whether the Fed slows tightening at its early-December meeting before calling a bottom.",
     },
     {
-        "id": 44,
+        "id": 40,
         "region": "GLOBAL",
         "headline": "MONERO SLIPS 10.5% AS KUCOIN DELISTS XMR",
         "source": "FINSCANS",
@@ -458,7 +426,7 @@ STORIES += [
         "summary": "Monero fell 10.5 percent as KuCoin moved to delist the privacy coin ahead of European Union privacy rules due in 2027. The delisting adds to a wave of exchange exits for privacy tokens, even as Grayscale defended the technology behind rival coin Zcash despite its own sharp decline.",
     },
     {
-        "id": 45,
+        "id": 41,
         "region": "GLOBAL",
         "headline": "WTI OIL RALLIES TO $84.38 AFTER JAZAN REFINERY STRIKE",
         "source": "FINSCANS",
@@ -468,7 +436,7 @@ STORIES += [
         "summary": "US crude rallied 0.82 percent to 84.38 dollars a barrel after a projectile strike halted some operations at Saudi Arabia's 400,000-barrel-a-day Jazan refinery. Supply fears outweighed worries about rising US inventories, with Brent also climbing above 91 dollars a barrel.",
     },
     {
-        "id": 46,
+        "id": 42,
         "region": "GLOBAL",
         "headline": "NEW IMAGES REVEAL CRATER ON ASTEROID HIT BY NASA'S DART",
         "source": "THE HINDU",
@@ -478,7 +446,7 @@ STORIES += [
         "summary": "New images revealed the crater left on the asteroid Dimorphos by NASA's DART spacecraft, which slammed into the rock in 2022 to test planetary defence. The pictures show how the impact reshaped the asteroid and will help scientists design future attempts to deflect dangerous space rocks.",
     },
     {
-        "id": 47,
+        "id": 43,
         "region": "GLOBAL",
         "headline": "NEW EVIDENCE RAISES POSSIBILITY OF GIANT PLANET BEYOND NEPTUNE",
         "source": "SHIAWAVES",
@@ -490,13 +458,13 @@ STORIES += [
 ]
 
 TITLE = (
-    "Friday 27 November 2026: 46 stories, 7 regions - "
+    "Friday 27 November 2026: 43 stories, 11 regions - "
     "Kuwait drone strike kills two Italians, "
-    "New Zealand election deadlocked, Gukesh holds Sindarov"
+    "Brazil snubs Milei, Gukesh holds Sindarov"
 )
 
 DATE_CHECK = (
-    "DATE CHECK - All 46 stories in this edition were verified as "
+    "DATE CHECK - All 43 stories in this edition were verified as "
     "published on Friday 27 November 2026 by the source named under each "
     "headline. CONFIRMED = two or more outlets or an official source. "
     "REPORTED = single-source report. No story is older than this date."
@@ -507,9 +475,9 @@ LARGE_SCENES = ["kuwait", "chess", "ballot", "jazan", "tanker", "storm"]
 SMALL_SCENES = ["gavel", "scales", "gold", "pumpjack", "asteroid",
                  "rocket", "football", "globe"]
 
-# Data guard: the edition must carry exactly 46 dated stories in 7 regions.
-assert len(STORIES) == 46, "expected 46 stories"
-assert len({s["region"] for s in STORIES}) == 7, "expected 7 regions"
+# Data guard: the edition must carry exactly 43 dated stories in 11 regions.
+assert len(STORIES) == 43, "expected 43 stories"
+assert len({s["region"] for s in STORIES}) == 11, "expected 11 regions"
 assert all(40 <= len(s["summary"].split()) <= 70 for s in STORIES), \
     "every summary must be 40-70 words"
 assert all(s["tag"] in ("CONFIRMED", "REPORTED") for s in STORIES)
