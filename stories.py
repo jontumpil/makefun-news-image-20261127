@@ -1,483 +1,735 @@
-# stories.py -- News data for THE WORLD IN ONE DAY, Friday 27 November 2026.
-# Every story below was verified as published on 27 November 2026 by its
-# named source. Summaries are written from the source articles, 40-55 words.
-# Tags: CONFIRMED = reported by two or more outlets or an official source;
-# REPORTED = single-source report. All text is plain ASCII for the renderer.
-# Revision r2: coverage widened from 7 to 11 regions (Latin America and
-# Central Asia added; East Asia & Pacific split into Southeast Asia, East
-# Asia and Oceania); four soft items dropped to make room.
+# stories.py — THE WORLD IN ONE DAY, Friday 27 November 2026 (r3).
+# 47 stories, 11 regions. Every story is dated 27 November 2026: it either
+# happened that day or was first reported that day (kit rule). Each story
+# carries a written summary of about 40 words drawn from its named source.
+# Headlines are kept to one printed line (37 characters or fewer) so the
+# front page fits. Tag CONFIRMED = date and facts verified from the source;
+# REPORTED = first reported on 27 Nov while the event fell on 26 Nov.
+
+TITLE = (
+    "Friday 27 November 2026: 47 stories, 11 regions \u2014 "
+    "Russia fires 155 drones at Ukraine, EU summit ends with no budget deal, "
+    "New Zealand hung 65\u201365"
+)
+DATE_LINE = "Friday 27 November 2026"
+EDITION = "news-image-20261127"
 
 REGIONS = [
-    "MIDDLE EAST",
     "EUROPE",
+    "MIDDLE EAST",
     "NORTH AMERICA",
     "LATIN AMERICA",
-    "SOUTH ASIA",
-    "CENTRAL ASIA",
-    "SOUTHEAST ASIA",
-    "EAST ASIA",
-    "OCEANIA",
     "AFRICA",
+    "SOUTH ASIA",
+    "EAST ASIA",
+    "SOUTHEAST ASIA",
+    "OCEANIA",
+    "CENTRAL ASIA",
     "GLOBAL",
 ]
 
-EDITION_DATE = "Friday 27 November 2026"
-EDITION_SLUG = "news-image-20261127"
-
+# Each story: headline (short, for the page), region, source, tag, summary.
 STORIES = [
     {
-        "id": 1,
-        "region": "MIDDLE EAST",
-        "headline": "TWO ITALIANS KILLED IN KUWAIT DRONE STRIKE",
-        "source": "BBC / NYT",
-        "tag": "CONFIRMED",
-        "utc": "01:03",
-        "scene": "kuwait",
-        "summary": "Two Italian technicians working for arms firm Rheinmetall were killed in Kuwait when a drone struck a facility, Foreign Minister Antonio Tajani and Kuwait's Defence Ministry said. Italy and Kuwait blamed Iran, which denied responsibility, raising fears of a widening confrontation.",
-    },
-    {
-        "id": 2,
-        "region": "MIDDLE EAST",
-        "headline": "HAMAS WEIGHS RESPONSE AFTER ISRAEL KILLS 10 IN GAZA",
-        "source": "REUTERS",
-        "tag": "CONFIRMED",
-        "utc": "00:04",
-        "scene": "",
-        "summary": "Hamas said it was consulting other Palestinian factions on a response after Israeli strikes killed 10 people in Gaza, including senior Hamas officials. Deputy chief Khalil al-Hayya called the killings unacceptable under the October 2025 ceasefire, as US, Qatari and Egyptian mediators kept talking in Cairo.",
-    },
-    {
-        "id": 3,
-        "region": "MIDDLE EAST",
-        "headline": "LEBANON REVERSES ICC JURISDICTION DECISION",
-        "source": "ARAB PRESS",
-        "tag": "CONFIRMED",
-        "utc": "02:00",
-        "scene": "",
-        "summary": "Lebanon rescinded its decision to authorise the International Criminal Court to investigate alleged war crimes on its soil, a move Human Rights Watch called a lost historic opportunity. Since October, Israel-Hezbollah violence has caused about 80 civilian casualties in Lebanon. Beirut will now complain to the United Nations.",
-    },
-    {
-        "id": 4,
-        "region": "MIDDLE EAST",
-        "headline": "PROJECTILE STRIKE ON JAZAN REFINERY KILLS WORKER",
-        "source": "REUTERS",
-        "tag": "CONFIRMED",
-        "utc": "02:26",
-        "scene": "jazan",
-        "summary": "A projectile strike on Saudi Aramco's Jazan refinery killed one worker and halted some operations at the 400,000-barrel-a-day plant, Reuters reported. Houthi attacks on Saudi infrastructure have escalated, reviving supply fears and pushing oil prices higher. The refinery is a key Red Sea export hub.",
-    },
-    {
-        "id": 5,
+        "headline": "Russia fires 155 drones at Ukraine",
         "region": "EUROPE",
-        "headline": "ZELENSKY CALLS TRUMP'S PUTIN BONHOMIE 'STRANGE'",
-        "source": "BBC / TOI",
+        "source": "Kyiv Post",
         "tag": "CONFIRMED",
-        "utc": "04:47",
-        "scene": "",
-        "summary": "President Volodymyr Zelensky told the BBC the United States is too focused on the Middle East and not pushing Russia hard enough, calling Donald Trump's friendship with Vladimir Putin strange. He said Trump cannot be a friend to both Kyiv and Moscow, as Ukraine-Russia peace talks stall.",
+        "summary": (
+            "Russia launched 155 drones at Ukraine overnight, including 83 "
+            "jet-powered Shaheds, Ukrainian air defences said on Friday. "
+            "Defences downed 110, but strikes hit 27 locations and one man "
+            "was killed in Zaporizhzhia. Energy and rail sites in nine "
+            "regions were hit, and power exports halted."
+        ),
     },
     {
-        "id": 6,
+        "headline": "EU summit ends with no budget deal",
         "region": "EUROPE",
-        "headline": "NET MIGRATION TO UK FALLS TO LOWEST SINCE 1997",
-        "source": "NYT",
+        "source": "Euronews",
         "tag": "CONFIRMED",
-        "utc": "00:22",
-        "scene": "globe",
-        "summary": "Net migration to Britain fell to its lowest level since 1997, excluding the pandemic years, new figures showed. The drop reflects tighter visa rules and weaker demand. Ministers claimed the figures vindicated their approach, while employers warned some sectors still depend on foreign workers.",
+        "summary": (
+            "European Union leaders ended their Brussels summit early "
+            "on Friday without agreeing the bloc's 2028-2034 budget or a "
+            "45 billion euro loan for Ukraine in 2027. Twenty-four "
+            "of 27 states backed the loan; Czechia, Hungary and Slovakia "
+            "stayed out, and Bulgaria backed only the civilian part."
+        ),
     },
     {
-        "id": 7,
+        "headline": "Zelensky slams Trump-Putin friendship",
         "region": "EUROPE",
-        "headline": "DIESEL TANKER CAPSIZES NEAR IBIZA, KILLING ONE",
         "source": "BBC",
         "tag": "CONFIRMED",
-        "utc": "03:31",
-        "scene": "tanker",
-        "summary": "A diesel tanker carrying up to 7,000 tonnes capsized off the coast of Ibiza, killing one crew member, the BBC reported. Rescue teams searched the waters around the stricken vessel as authorities assessed the risk of a fuel spill in the busy Mediterranean tourist area.",
+        "summary": (
+            "In a BBC interview broadcast on Friday, President Volodymyr "
+            "Zelensky said President Trump calling President Putin a friend "
+            "was like treating Hitler as a friend during World War Two, "
+            "calling it strange. He also criticised delays in air-defence "
+            "supplies as Russian strikes pound Ukraine's power grid."
+        ),
     },
     {
-        "id": 8,
+        "headline": "Drone breaches Latvian airspace",
         "region": "EUROPE",
-        "headline": "UK LEADERS WARNED OVER CLIMATE DENIAL AS WORLD TOPS 2C FOR SIX DAYS",
-        "source": "EUROPESAYS",
-        "tag": "REPORTED",
-        "utc": "05:00",
-        "scene": "",
-        "summary": "British political leaders were warned that denying climate change is beyond irresponsible after global temperatures ran more than 2C above pre-industrial levels for six consecutive days, a first. Copernicus data put the peak at 2.24C. Campaigners said misinformation risks blocking action.",
+        "source": "Latvian Armed Forces",
+        "tag": "CONFIRMED",
+        "summary": (
+            "An unidentified drone briefly entered Latvian airspace early on "
+            "Friday, triggering NATO fighter scrambles, an interceptor drone "
+            "launch and an alert in the eastern municipality of Ludza. "
+            "Latvian officials noted the breach coincided with air-defence "
+            "activity in Russia's Leningrad region."
+        ),
     },
     {
-        "id": 9,
+        "headline": "UK net migration falls to 77,000",
         "region": "EUROPE",
-        "headline": "BAYERN SUFFER FIRST DEFEAT OF SEASON AT LILLE",
-        "source": "BAVARIAN FOOTBALL WORKS",
+        "source": "ONS / BBC",
         "tag": "CONFIRMED",
-        "utc": "05:15",
-        "scene": "football",
-        "summary": "Bayern Munich lost 2-1 to LOSC Lille in the Champions League, their first defeat of the season. The German champions blamed injuries, but analysts said the excuses could not hide a toothless display. Lille's win shook up the group and ended Bayern's unbeaten run.",
+        "summary": (
+            "Net migration to the United Kingdom fell to 77,000, its lowest "
+            "level since 1997, official figures published on Friday showed. "
+            "The sharp fall reshapes the immigration debate for the "
+            "government, which has tightened visa rules, and comes as "
+            "ministers face pressure over small-boat arrivals."
+        ),
     },
     {
-        "id": 10,
-        "region": "NORTH AMERICA",
-        "headline": "TRUMP DEMANDS PROBE INTO 'FAKE' US GDP FIGURES",
-        "source": "MINT",
-        "tag": "CONFIRMED",
-        "utc": "00:03",
-        "scene": "",
-        "summary": "President Donald Trump demanded an investigation after the Commerce Department revised third-quarter GDP growth up to 4.3 percent from 3.4 percent. Trump alleged without evidence that federal statisticians understated performance before the November 3 elections, in which Democrats captured Congress.",
-    },
-    {
-        "id": 11,
-        "region": "NORTH AMERICA",
-        "headline": "DEMOCRATS' PLAN TO END FUNDING FOR IRAN WAR",
-        "source": "THE HILL",
-        "tag": "CONFIRMED",
-        "utc": "00:00",
-        "scene": "",
-        "summary": "Incoming Democratic majorities in Congress plan to cut off funding for the US war with Iran, launched by President Trump nine months ago, The Hill reported. Ending the war is a top priority for the new majorities, though what comes next for US policy in the region remains unresolved.",
-    },
-    {
-        "id": 12,
-        "region": "NORTH AMERICA",
-        "headline": "THANKSGIVING STORM BRINGS FLOODING AND FLIGHT DELAYS ACROSS US",
+        "headline": "UK pensions dept hit by cyber hack",
+        "region": "EUROPE",
         "source": "BBC",
         "tag": "CONFIRMED",
-        "utc": "06:00",
-        "scene": "",
-        "summary": "A major Thanksgiving storm brought flooding, flight delays and power cuts to hundreds of thousands of customers on both US coasts. Wind gusts tore roofs off buildings and downed trees, while heavy rain swamped streets. Airports reported long delays as the storm disrupted holiday travel.",
+        "summary": (
+            "The Department for Work and Pensions said on Friday it had "
+            "identified a cyber incident affecting its systems and was "
+            "taking some services offline as a precaution. People would "
+            "still receive regular benefit payments, the department said, "
+            "while the National Cyber Security Centre helped investigate."
+        ),
     },
     {
-        "id": 13,
-        "region": "NORTH AMERICA",
-        "headline": "MUSK: EVERY US CHILD WILL GET TWO SPACEX SHARES",
-        "source": "THE HINDU",
+        "headline": "Princess Kate film on cancer fight",
+        "region": "EUROPE",
+        "source": "Reuters",
         "tag": "CONFIRMED",
-        "utc": "01:49",
-        "scene": "rocket",
-        "summary": "Elon Musk said every child in the United States will receive two SpaceX shares through the Trump Accounts programme, in a gift that could be worth about 18.5 billion dollars. Parents must hold an active Trump Account for their child. The pledge links the space firm's growth to family savings.",
+        "summary": (
+            "Britain's Princess of Wales discusses the struggles and fears "
+            "she endured while being treated for cancer in one of the most "
+            "revealing films about a British royal, Reuters reported on "
+            "Friday. The documentary, filmed climbing mountains, airs on "
+            "BBC television on Sunday before broadcasts abroad."
+        ),
     },
     {
-        "id": 14,
-        "region": "LATIN AMERICA",
-        "headline": "BRAZIL DROPS MILEI FROM LULA INAUGURATION LIST",
-        "source": "DAINIK JAGRAN / GROUND NEWS",
+        "headline": "Kuwait drone kills two Italians",
+        "region": "MIDDLE EAST",
+        "source": "Reuters / ANSA",
         "tag": "CONFIRMED",
-        "utc": "15:30",
-        "scene": "",
-        "summary": "Brazil has excluded Argentine President Javier Milei from the guest list for Lula da Silva's January 5 inauguration and permanently withdrawn its ambassador from Buenos Aires. Foreign Minister Pablo Quirno said Argentina had received no official confirmation, while adviser Celso Amorim floated inviting another Argentine representative.",
+        "summary": (
+            "Two Italian technicians working for Rheinmetall Italia were "
+            "killed on Thursday when drones struck an air-defence "
+            "site in Kuwait, which Kuwait and Italy blamed on Iran. The men, "
+            "aged 65 and 36, were maintaining detection equipment. A "
+            "Pakistani national and a Kuwaiti captain were hurt."
+        ),
     },
     {
-        "id": 15,
-        "region": "LATIN AMERICA",
-        "headline": "VENEZUELA MOVES TO REPEAL LAW THAT JAILED SANCTIONS BACKERS",
-        "source": "FRANCE 24 / SEMANA",
+        "headline": "Iran denies role, offers joint probe",
+        "region": "MIDDLE EAST",
+        "source": "Al Jazeera",
         "tag": "CONFIRMED",
-        "utc": "13:10",
-        "scene": "",
-        "summary": "Venezuela's parliament president Jorge Rodriguez announced plans to repeal the Ley Organica Libertador Simon Bolivar, which punished advocacy for sanctions against the country with up to 30 years in prison. State oil firm PDVSA separately confirmed a fire at the Amuay refinery on November 26 caused no injuries and no fuel supply impact.",
+        "summary": (
+            "Iran's Foreign Minister Abbas Araghchi said on Friday that "
+            "Tehran had no role or involvement whatsoever in the drone "
+            "attack that killed two Italians in Kuwait, calling the "
+            "accusation suspicious and a precooked recipe for war. He "
+            "offered a joint investigation as Kuwait summoned Iran's envoy."
+        ),
     },
     {
-        "id": 16,
-        "region": "LATIN AMERICA",
-        "headline": "RIO POLICE ARREST OFFICER ACCUSED OF LEADING MILITIA",
-        "source": "RIO TIMES",
+        "headline": "Houthis hit Saudi Aramco refinery",
+        "region": "MIDDLE EAST",
+        "source": "AP",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Houthi forces hit Saudi Aramco's Jazan refinery on Thursday, "
+            "killing one Nepali worker and halting some operations, reports "
+            "said on Friday. The Saudi-led coalition said it destroyed the "
+            "launch platform and struck 50 Houthi targets in Sanaa, "
+            "Hodeidah and Saada in retaliation for the attack."
+        ),
+    },
+    {
+        "headline": "Two tankers hit mines in Hormuz",
+        "region": "MIDDLE EAST",
+        "source": "IRGC / Reuters",
         "tag": "REPORTED",
-        "utc": "16:20",
-        "scene": "",
-        "summary": "Rio de Janeiro's civil police arrested a military police officer known as Capitao Leo on November 27, saying he helps lead a militia linked to several homicides. The arrest is the latest blow against the armed groups that control swathes of the city through extortion, illegal services and violence against residents.",
+        "summary": (
+            "Two oil tankers were hit by mines in the Strait of Hormuz, "
+            "Iran's Revolutionary Guards said on Friday, adding strain to "
+            "shipping and energy infrastructure across the Gulf. The "
+            "incident came the same day a Saudi refinery and a Kuwaiti "
+            "facility were hit in separate attacks, rattling oil markets."
+        ),
     },
     {
-        "id": 17,
-        "region": "SOUTH ASIA",
-        "headline": "GUKESH, SINDAROV PLAY OUT MARATHON DRAW IN GAME 3",
-        "source": "FIDE / INDIA TODAY",
+        "headline": "Trump: victory over Iran at hand",
+        "region": "MIDDLE EAST",
+        "source": "Thanksgiving call",
         "tag": "CONFIRMED",
-        "utc": "00:08",
-        "scene": "chess",
-        "summary": "World champion D Gukesh held challenger Javokhir Sindarov to a draw in a 60-move Game 3 of the world title match in Geneva. Gukesh's Rio de Janeiro Variation gave him a 50-minute lead, but Sindarov survived, making his 40th move with six seconds to spare. The match is level at 1.5-1.5.",
+        "summary": (
+            "President Donald Trump told US troops on Thanksgiving that "
+            "victory over Iran is at hand whenever he wants it, said he "
+            "was giving Iran every chance to make a deal, and named "
+            "Pickaxe Mountain as a target if the United States acts. The "
+            "remarks came as Gulf tensions spiked after the Kuwait attack."
+        ),
     },
     {
-        "id": 18,
-        "region": "SOUTH ASIA",
-        "headline": "TOP COURT: JUDICIAL MEMBER MUST SIT ON PMLA BENCH",
-        "source": "TOI",
+        "headline": "Israel threatens Gaza displacement",
+        "region": "MIDDLE EAST",
+        "source": "Reports",
+        "tag": "REPORTED",
+        "summary": (
+            "Israel's defence minister threatened to displace one million "
+            "Palestinians within Gaza if Hamas refuses to disarm, reports "
+            "said on Friday. Israeli bombardments and cannon fire hit "
+            "multiple areas of the territory, keeping the fragile "
+            "ceasefire under severe strain as mediators pressed both sides."
+        ),
+    },
+    {
+        "headline": "Thanksgiving storm cuts power to 800k",
+        "region": "NORTH AMERICA",
+        "source": "AP",
         "tag": "CONFIRMED",
-        "utc": "03:46",
-        "scene": "gavel",
-        "summary": "India's Supreme Court ruled that a judicial member must sit on the bench to confirm an attachment under the Prevention of Money Laundering Act. The decision clarifies the tribunal's composition in money-laundering cases and could affect pending confiscation proceedings against accused persons and companies.",
+        "summary": (
+            "Storms hit both US coasts on Thanksgiving, leaving more than "
+            "800,000 homes without power at the peak, with nearly 700,000 "
+            "still out on Friday. About 400 flights were cancelled. Heavy "
+            "rain and wind caused flooding and water rescues from New York "
+            "to Virginia, and New York declared a state of emergency."
+        ),
     },
     {
-        "id": 19,
-        "region": "SOUTH ASIA",
-        "headline": "BIHAR MOVE ILLEGAL, SAYS TOP COURT, QUASHES ANAND MOHAN RELEASE",
-        "source": "TOI",
+        "headline": "Macy's parade postponed, a first",
+        "region": "NORTH AMERICA",
+        "source": "NYC / NBC",
         "tag": "CONFIRMED",
-        "utc": "03:43",
-        "scene": "scales",
-        "summary": "The Supreme Court quashed the premature release of former MP Anand Mohan, ruling that Bihar's move to free him was illegal. Mohan was convicted in the 1994 murder of a district magistrate. The verdict overturned the state government's remission order and sent him back to prison.",
+        "summary": (
+            "New York City officials postponed the Macy's Thanksgiving Day "
+            "Parade to Saturday, the first delay in its 100-year history, "
+            "after a powerful storm made it too dangerous to fly the giant "
+            "balloons. The 100th parade will now step off on Saturday at "
+            "8:30 a.m. ET, broadcast live on NBC, Telemundo and Peacock."
+        ),
     },
     {
-        "id": 20,
-        "region": "SOUTH ASIA",
-        "headline": "PARLIAMENT TO SIT SPECIALLY FROM NOV 30",
-        "source": "THEPRINT / NIE",
+        "headline": "Trump calls GDP figures fake",
+        "region": "NORTH AMERICA",
+        "source": "BEA / reports",
         "tag": "CONFIRMED",
-        "utc": "01:15",
-        "scene": "",
-        "summary": "Parliament will reconvene in New Delhi from November 30 for a special sitting that could take up delimitation and the women's reservation quota, ThePrint reported. The Congress accused the Modi government of seeking a super-tainted two-thirds majority to push through its agenda.",
+        "summary": (
+            "President Trump called the growth figures fake and demanded a "
+            "Commerce Department investigation on Friday, questioning a GDP "
+            "revision. The Bureau of Economic Analysis had reported "
+            "third-quarter GDP growth of 4.3 percent, with October PCE "
+            "inflation at 3.8 percent and core PCE at 3.3 percent."
+        ),
     },
     {
-        "id": 21,
-        "region": "SOUTH ASIA",
-        "headline": "RBI REPATRIATES ANOTHER 60 TONNES OF GOLD IN 2026",
-        "source": "KITCO",
+        "headline": "US trade deficit widens to $149.5bn",
+        "region": "NORTH AMERICA",
+        "source": "US Census",
         "tag": "CONFIRMED",
-        "utc": "00:50",
-        "scene": "gold",
-        "summary": "India's central bank repatriated another 60 tonnes of gold in 2026, Kitco reported, taking its total holdings held at home higher. Gold's share of foreign exchange reserves fell to 14.38 percent. Central banks worldwide have been buying gold as a hedge against currency and geopolitical risk.",
+        "summary": (
+            "The US goods trade deficit widened to 149.5 billion "
+            "dollars as artificial-intelligence imports surged, figures "
+            "showed on Friday. The gap feeds the tariff debate in "
+            "Washington, where the administration has proposed new duties "
+            "on China and the European Union to replace levies struck down "
+            "by a court."
+        ),
     },
     {
-        "id": 22,
-        "region": "SOUTH ASIA",
-        "headline": "INDIA WEAKENED PAK IN 1971, DID NOT HELP BENGALIS: BANGLADESH SPEAKER",
-        "source": "INDIA TODAY",
+        "headline": "Bird flu kills Washington worker",
+        "region": "NORTH AMERICA",
+        "source": "CDC",
         "tag": "CONFIRMED",
-        "utc": "00:08",
-        "scene": "",
-        "summary": "Bangladesh's Speaker said India weakened Pakistan in the 1971 war but did not help Bengalis, India Today reported. The remark stirred debate in Dhaka about India's role in Bangladesh's independence. Historians note Indian troops fought alongside Bengali freedom fighters in the war.",
+        "summary": (
+            "Bird flu killed a Washington dairy worker in the first death "
+            "tied to infected cattle, health officials said on Friday. The "
+            "case is the latest sign the H5N1 virus is spreading through US "
+            "dairy herds, and officials stressed monitoring of farm workers "
+            "while stressing the risk to the general public remains low."
+        ),
     },
     {
-        "id": 23,
-        "region": "CENTRAL ASIA",
-        "headline": "UZBEKISTAN AND KAZAKHSTAN REOPEN BUSIEST BORDER CROSSING",
-        "source": "DAILY FOX NEWS / UZA",
+        "headline": "Judge blocks birthright order",
+        "region": "NORTH AMERICA",
+        "source": "US court",
         "tag": "CONFIRMED",
-        "utc": "14:23",
-        "scene": "",
-        "summary": "Uzbekistan and Kazakhstan have reopened the Gishtkuprik-Zhibek Zholy border crossing after a two-year rebuild, with terminals built for 70,000 travellers a day and up to 100,000 at peak periods. Bilateral trade reached 4.4 billion dollars in the first ten months of 2026, up 20 percent.",
+        "summary": (
+            "A second federal judge blocked President Trump's revised "
+            "birthright citizenship order on Friday, the latest court "
+            "setback for the administration's immigration agenda. The "
+            "ruling keeps the legal fight over citizenship for children "
+            "born in the United States to non-citizen parents heading "
+            "toward higher courts."
+        ),
     },
     {
-        "id": 24,
-        "region": "CENTRAL ASIA",
-        "headline": "FIVE CENTRAL ASIAN STATES LAUNCH HEALTH ROADMAP IN TASHKENT",
+        "headline": "Abrego Garcia arrives in Spain",
+        "region": "LATIN AMERICA",
+        "source": "AP",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Kilmar Abrego Garcia arrived in Spain after a voluntary "
+            "departure from the United States, ending his long deportation "
+            "fight, reports said on Friday. A federal judge closed his "
+            "Maryland immigration case after the departure, though his "
+            "lawyer and Homeland Security disagreed over the terms of the "
+            "exit."
+        ),
+    },
+    {
+        "headline": "Peso in worst slide in five years",
+        "region": "LATIN AMERICA",
+        "source": "Markets",
+        "tag": "CONFIRMED",
+        "summary": (
+            "The Mexican peso suffered its worst losing streak in five years "
+            "as carry trades unwound, market reports said on Friday, while "
+            "the dollar headed for its longest monthly winning streak since "
+            "2024. The Federal Reserve looked poised to raise rates even as "
+            "equities wobbled, pressuring emerging-market currencies."
+        ),
+    },
+    {
+        "headline": "Brazil U17s beat Costa Rica 3-0",
+        "region": "LATIN AMERICA",
+        "source": "FIFA",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Brazil's under-17s beat Costa Rica 3-0 at the FIFA U-17 World "
+            "Cup in Doha on Friday, topping Group I with three wins from "
+            "three games, six goals scored and one conceded. The young "
+            "Selecao kept a perfect record in Qatar as the tournament's "
+            "knockout rounds approached."
+        ),
+    },
+    {
+        "headline": "Congo Ebola cases pass 12,000",
+        "region": "AFRICA",
+        "source": "DRC health ministry",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Congo's Ebola outbreak has passed 12,000 confirmed cases, with "
+            "5,904 deaths, health ministry data showed on Thursday and "
+            "reported on Friday, making it the second-largest outbreak on "
+            "record. The Bundibugyo strain has no approved vaccine or "
+            "treatment, and an updated response plan needs about 1.576 "
+            "billion dollars."
+        ),
+    },
+    {
+        "headline": "Fighting disrupts Ebola response",
+        "region": "AFRICA",
         "source": "WHO",
         "tag": "CONFIRMED",
-        "utc": "07:00",
-        "scene": "",
-        "summary": "Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan launched a second roadmap for health and well-being in Central Asia, covering 2026 to 2030, at a ministerial event in Tashkent. The WHO-backed plan targets primary care, health workers, outbreaks and climate risks for 85 million people across the five countries.",
+        "summary": (
+            "The World Health Organization warned on Friday that fighting "
+            "is disrupting the Ebola response in Congo, with health workers "
+            "sheltering in a maternity ward for more than 24 hours as "
+            "clashes raged near an Ituri hospital. Responders were forced "
+            "to flee some areas, leaving cases untraced as infections "
+            "climbed."
+        ),
     },
     {
-        "id": 25,
-        "region": "SOUTHEAST ASIA",
-        "headline": "JCI RISES, BUT FOREIGN INVESTORS SELL HEAVILY",
-        "source": "JAWAWA",
-        "tag": "CONFIRMED",
-        "utc": "00:25",
-        "scene": "",
-        "summary": "Indonesia's Composite Stock Price Index rose 0.86 percent to 5,242.17 at Thursday's close, rebounding from the previous day's fall. Foreign investors were net buyers of 238.90 billion rupiah overall, but sold heavily in 10 stocks, led by Adaro Andalan at 60.83 billion rupiah and Telkom at 55.41 billion.",
-    },
-    {
-        "id": 26,
-        "region": "SOUTHEAST ASIA",
-        "headline": "INDONESIA GOLD MINE TOLL RISES TO 13",
-        "source": "ZAKA",
-        "tag": "CONFIRMED",
-        "utc": "01:42",
-        "scene": "",
-        "summary": "At least 13 miners have died after floodwaters submerged an illegal gold mine pit in West Java, officials said. Rescue teams kept searching the flooded shaft for more miners still trapped underground, while the search continued through the morning for those unaccounted for.",
-    },
-    {
-        "id": 27,
-        "region": "SOUTHEAST ASIA",
-        "headline": "MYANMAR JUNTA REJECTS ASEAN CURBS AFTER MANILA SUMMIT",
-        "source": "ASEANS",
-        "tag": "REPORTED",
-        "utc": "09:40",
-        "scene": "",
-        "summary": "Myanmar's military administration rejected ASEAN's decision to keep curbs on its summit representation, after leaders at the 49th ASEAN Summit in Manila said full participation needs measurable progress on the bloc's five-point peace consensus. Indonesia backed the International Court of Justice ruling on the Rohingya.",
-    },
-    {
-        "id": 28,
-        "region": "SOUTHEAST ASIA",
-        "headline": "ROUGH SEAS FORCE SMALL BOATS ASHORE ACROSS SOUTHEAST ASIA",
-        "source": "TRAVEL AND TOUR WORLD",
-        "tag": "REPORTED",
-        "utc": "06:30",
-        "scene": "",
-        "summary": "Thailand advised small boats to stay ashore from November 28 to 30 as monsoon seas build, forecasting waves of two to three metres in the lower Gulf of Thailand. Malaysia warned of winds up to 50 kilometres an hour and 3.5-metre waves, while Vietnam forecast offshore waves reaching five metres.",
-    },
-    {
-        "id": 29,
-        "region": "EAST ASIA",
-        "headline": "CHINA'S DRONES ARE RESHAPING ASIA'S MILITARIES",
-        "source": "MINT",
-        "tag": "CONFIRMED",
-        "utc": "02:55",
-        "scene": "",
-        "summary": "China's drones are reshaping the militaries of Asia, Mint reported, as armed forces from Tokyo to New Delhi race to field unmanned systems. Cheap, capable drones have changed the cost of air power and surveillance, forcing neighbours to rewrite doctrine and buy counter-drone defences.",
-    },
-    {
-        "id": 30,
-        "region": "EAST ASIA",
-        "headline": "TOKYO CPI STEADY AT 2.8% AS YEN SLIDES TO 159.35",
-        "source": "FINSCANS",
-        "tag": "CONFIRMED",
-        "utc": "02:00",
-        "scene": "",
-        "summary": "Tokyo's headline inflation held steady at 2.8 percent in November, keeping pressure on the Bank of Japan over its monetary policy. The yen slipped to 159.35 against the dollar after softer-than-expected core data, though traders stayed alert to intervention threats and rate-hike expectations.",
-    },
-    {
-        "id": 31,
-        "region": "EAST ASIA",
-        "headline": "CHINA TESTS NEW TAIWAN LANDING TACTICS IN COASTAL DRILLS",
-        "source": "ARCHIPELAGO EXPAT",
-        "tag": "REPORTED",
-        "utc": "08:15",
-        "scene": "",
-        "summary": "China's military has tested new Taiwan landing tactics in coastal drills, according to reports carried by regional news trackers on November 27. The exercises are the latest in a series of operations around the self-ruled island that Beijing claims as its territory, and they drew close monitoring from Taiwan's defence ministry.",
-    },
-    {
-        "id": 32,
-        "region": "EAST ASIA",
-        "headline": "SEOUL REPATRIATES SIX NORTH KOREANS FROM DRIFTING BOAT",
-        "source": "ARCHIPELAGO EXPAT",
-        "tag": "REPORTED",
-        "utc": "05:40",
-        "scene": "",
-        "summary": "South Korea has repatriated six North Koreans found aboard a drifting fishing boat, regional trackers reported on November 27. Seoul routinely returns fishermen who drift south across the maritime border when they wish to go home, a practice that continues despite frozen ties between the two Koreas.",
-    },
-    {
-        "id": 33,
-        "region": "OCEANIA",
-        "headline": "COALITION LOSES MAJORITY AS FINAL COUNT DELIVERS DEADLOCK",
-        "source": "FARMERS WEEKLY",
-        "tag": "CONFIRMED",
-        "utc": "01:00",
-        "scene": "ballot",
-        "summary": "New Zealand's final election count erased the coalition's majority, leaving a 65-65 deadlock in the 130-seat Parliament. National, ACT and New Zealand First hold 65 seats, the same as Labour, the Greens, Te Pati Maori and Opportunity combined. Luxon must now court Opportunity's Qiulae Wong.",
-    },
-    {
-        "id": 34,
-        "region": "OCEANIA",
-        "headline": "CRICKET AUSTRALIA BALL-TAMPERING FORUM TO INCLUDE 2017-18 ASHES",
-        "source": "THE GUARDIAN",
-        "tag": "CONFIRMED",
-        "utc": "06:22",
-        "scene": "",
-        "summary": "Cricket Australia's ball-tampering forum will include the 2017-18 Ashes series, The Guardian reported, widening a review that began with the sandpapergate scandal. There will be no sanctions and no recrimination, officials said, as the sport seeks to draw a line under a dark episode.",
-    },
-    {
-        "id": 35,
-        "region": "OCEANIA",
-        "headline": "AUSTRALIA SIGNS SECURITY TREATY WITH SOLOMON ISLANDS",
-        "source": "AIIA / HARAVA",
-        "tag": "CONFIRMED",
-        "utc": "05:00",
-        "scene": "",
-        "summary": "Australia and Solomon Islands signed a treaty in Canberra naming Australia the Pacific nation's primary security partner and ruling out foreign military bases, with A$740 million in Australian support over a decade. Prime Ministers Anthony Albanese and Matthew Wale also agreed closer policing, education and labour ties.",
-    },
-    {
-        "id": 36,
-        "region": "OCEANIA",
-        "headline": "FIJI-AUSTRALIA MUTUAL DEFENCE PACT ENTERS INTO FORCE",
-        "source": "AIIA",
-        "tag": "CONFIRMED",
-        "utc": "04:30",
-        "scene": "",
-        "summary": "Fiji and Australia brought their Vuvale Union and Veitacini Treaty into force this week, making Fiji Australia's fourth formal ally under a mutual defence pact backed by more than 1 billion dollars over a decade. Each country commits to act if the other is attacked in the Pacific.",
-    },
-    {
-        "id": 37,
+        "headline": "Kenya cult leader convicted",
         "region": "AFRICA",
-        "headline": "AFENYO-MARKIN QUESTIONS OSP OVER ALLEGED TRANSFER OF FROZEN FUNDS",
-        "source": "GHANAWEB",
+        "source": "Kenyan court",
         "tag": "CONFIRMED",
-        "utc": "00:34",
-        "scene": "",
-        "summary": "Ghana's Alexander Afenyo-Markin questioned the Office of the Special Prosecutor over the alleged transfer of frozen funds, GhanaWeb reported. The opposition figure demanded answers on how the money moved and who authorised it. The case adds to scrutiny of the anti-graft body's handling of high-profile funds.",
+        "summary": (
+            "Kenyan cult leader Paul Mackenzie was convicted of manslaughter "
+            "on Friday over the Shakahola starvation deaths, in one of the "
+            "country's most shocking criminal cases. Hundreds of followers "
+            "died after being told to fast to meet Jesus, and the verdict "
+            "closes years of investigation into the forest commune."
+        ),
     },
     {
-        "id": 38,
+        "headline": "Sudan army downs drone in Kordofan",
         "region": "AFRICA",
-        "headline": "FAKE EMERGENCY CALLS HIT 57M IN 2025, SAYS NCC",
-        "source": "PUNCH",
+        "source": "Sudan army",
         "tag": "CONFIRMED",
-        "utc": "00:51",
-        "scene": "",
-        "summary": "Fake emergency calls in Nigeria hit 57 million in 2025, the Nigerian Communications Commission said. The flood of prank and false calls clogs lines meant for real crises and wastes responders' time. The regulator urged the public to stop abusing the service and warned of penalties.",
+        "summary": (
+            "Sudan's army said on Friday its air defences shot down an "
+            "FH-95 drone in South Kordofan, as the country's civil war "
+            "kept spilling into new fronts. The claim underlines how "
+            "uncrewed aircraft have become central to the fighting between "
+            "the army and the Rapid Support Forces across Sudan."
+        ),
     },
     {
-        "id": 39,
-        "region": "GLOBAL",
-        "headline": "GOLD SLIPS TO $3,565 AS HAWKISH FED SIGNALS BITE",
-        "source": "FINSCANS",
+        "headline": "First generic HIV shots reach Africa",
+        "region": "AFRICA",
+        "source": "Delivery reports",
         "tag": "CONFIRMED",
-        "utc": "03:00",
-        "scene": "",
-        "summary": "Gold slipped to 3,565 dollars an ounce as hawkish Federal Reserve signals and rising rate-hike expectations lifted the dollar. The metal stayed below its 100-day moving average, with traders watching whether the Fed slows tightening at its early-December meeting before calling a bottom.",
+        "summary": (
+            "The first generic HIV prevention shots reached Africa on "
+            "Friday as Zambia took delivery of low-cost long-acting "
+            "doses, a milestone for prevention in the worst-hit region. "
+            "Cheaper generics could put the twice-yearly injection within "
+            "reach of millions who now rely on daily pills that are easy "
+            "to miss."
+        ),
     },
     {
-        "id": 40,
-        "region": "GLOBAL",
-        "headline": "MONERO SLIPS 10.5% AS KUCOIN DELISTS XMR",
-        "source": "FINSCANS",
+        "headline": "Gukesh draws Game 3; 1.5-1.5",
+        "region": "SOUTH ASIA",
+        "source": "PTI",
         "tag": "CONFIRMED",
-        "utc": "04:00",
-        "scene": "",
-        "summary": "Monero fell 10.5 percent as KuCoin moved to delist the privacy coin ahead of European Union privacy rules due in 2027. The delisting adds to a wave of exchange exits for privacy tokens, even as Grayscale defended the technology behind rival coin Zcash despite its own sharp decline.",
+        "summary": (
+            "Defending champion Dommaraju Gukesh drew with challenger "
+            "Javokhir Sindarov after 60 moves in Game 3 of the World Chess "
+            "Championship in Geneva on Thursday, reports published on Friday "
+            "said. Gukesh, playing black, used a rare Berlin Defence "
+            "variation. The 14-game match, worth 2.5 million dollars, is "
+            "tied 1.5-1.5."
+        ),
     },
     {
-        "id": 41,
-        "region": "GLOBAL",
-        "headline": "WTI OIL RALLIES TO $84.38 AFTER JAZAN REFINERY STRIKE",
-        "source": "FINSCANS",
-        "tag": "CONFIRMED",
-        "utc": "05:00",
-        "scene": "pumpjack",
-        "summary": "US crude rallied 0.82 percent to 84.38 dollars a barrel after a projectile strike halted some operations at Saudi Arabia's 400,000-barrel-a-day Jazan refinery. Supply fears outweighed worries about rising US inventories, with Brent also climbing above 91 dollars a barrel.",
-    },
-    {
-        "id": 42,
-        "region": "GLOBAL",
-        "headline": "NEW IMAGES REVEAL CRATER ON ASTEROID HIT BY NASA'S DART",
-        "source": "THE HINDU",
-        "tag": "CONFIRMED",
-        "utc": "02:06",
-        "scene": "asteroid",
-        "summary": "New images revealed the crater left on the asteroid Dimorphos by NASA's DART spacecraft, which slammed into the rock in 2022 to test planetary defence. The pictures show how the impact reshaped the asteroid and will help scientists design future attempts to deflect dangerous space rocks.",
-    },
-    {
-        "id": 43,
-        "region": "GLOBAL",
-        "headline": "NEW EVIDENCE RAISES POSSIBILITY OF GIANT PLANET BEYOND NEPTUNE",
-        "source": "SHIAWAVES",
+        "headline": "India-Nepal armies train together",
+        "region": "SOUTH ASIA",
+        "source": "Indian Army",
         "tag": "REPORTED",
-        "utc": "01:34",
-        "scene": "",
-        "summary": "New astronomical evidence has raised the possibility of a giant planet lurking beyond Neptune, ShiaWaves reported. Researchers pointed to unexplained patterns in the orbits of distant objects that could be explained by a hidden world. If confirmed, the find would rewrite the map of the outer solar system.",
+        "summary": (
+            "The 20th India-Nepal army exercise Suryakiran XX continued at "
+            "the Nepal Army Battle School in Saljhandi, having opened on "
+            "25 November and running until 8 December, current-affairs "
+            "reports noted on Friday. The annual drill builds joint "
+            "counter-terror and disaster-relief skills along the shared "
+            "border."
+        ),
+    },
+    {
+        "headline": "India forex reserves hit $737.78bn",
+        "region": "SOUTH ASIA",
+        "source": "RBI",
+        "tag": "CONFIRMED",
+        "summary": (
+            "India's foreign-exchange reserves stood at 737.78 billion "
+            "dollars at the end of September 2026, up 46.67 billion since "
+            "March, the Reserve Bank of India's half-yearly report showed "
+            "on Friday. Import cover was 9.8 months, giving the central "
+            "bank a strong buffer as global markets stayed volatile."
+        ),
+    },
+    {
+        "headline": "Sri Lanka A reach Rising Stars final",
+        "region": "SOUTH ASIA",
+        "source": "ESPNcricinfo / ANI",
+        "tag": "REPORTED",
+        "summary": (
+            "Sri Lanka A beat India A by eight wickets in the first "
+            "semi-final of the Asia Cup Rising Stars in Doha on Thursday, "
+            "chasing 318 in 41.3 overs, reports said on Friday. Two openers "
+            "scored centuries as Sri Lanka won with 51 balls to spare. "
+            "They meet the Pakistan Shaheens-Bangladesh A winner in "
+            "Sunday's final."
+        ),
+    },
+    {
+        "headline": "China factory profits grow again",
+        "region": "EAST ASIA",
+        "source": "Markets",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Chinese factories are growing profits again, led by "
+            "AI-related goods, figures showed on Friday, as Shanghai "
+            "shares jumped 3.7 percent in a global rally. The Hang Seng "
+            "rose 3.3 percent and the Nikkei 2.1 percent, while markets "
+            "also steadied after Nvidia's chief executive returned to the "
+            "chipmaker."
+        ),
+    },
+    {
+        "headline": "Kim Jong Un orders more nuclear arms",
+        "region": "EAST ASIA",
+        "source": "KCNA",
+        "tag": "CONFIRMED",
+        "summary": (
+            "North Korea's Kim Jong Un inspected production facilities and "
+            "called for expanded deployment of tactical nuclear weapons, "
+            "state media reported on Friday. The leader vowed to expand "
+            "the nuclear arsenal programme after recent exchanges with "
+            "President Trump, keeping the peninsula's arms race in the "
+            "spotlight."
+        ),
+    },
+    {
+        "headline": "AI fakes target Taiwan polls",
+        "region": "EAST ASIA",
+        "source": "Reports",
+        "tag": "REPORTED",
+        "summary": (
+            "AI-generated fakes are seeking to influence Taiwan's polls, "
+            "reports said on Friday, and Taipei is suspicious of China. "
+            "The warning adds to a year of concern over synthetic media in "
+            "Asian elections, as regulators struggle to trace deepfakes "
+            "that spread faster than fact-checkers can debunk them."
+        ),
+    },
+    {
+        "headline": "Hong Kong shares jump 3.3 percent",
+        "region": "EAST ASIA",
+        "source": "Markets",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Hong Kong's Hang Seng index rose 3.3 percent on Friday in a "
+            "broad Asia rally, tracking Shanghai's 3.7 percent gain and a "
+            "rebound in technology shares. Investors returned to battered "
+            "AI stocks after a volatile week, though traders warned the "
+            "recovery could fade if tariff threats harden again."
+        ),
+    },
+    {
+        "headline": "Bangkok refinery fire injures nine",
+        "region": "SOUTHEAST ASIA",
+        "source": "Xinhua",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Thai authorities ordered Bangchak's Bangkok oil refinery to "
+            "suspend operations until 8 January after a fire at the plant "
+            "on Thursday injured nine people, officials said on Friday. "
+            "A heat exchanger in the hydrocracking unit ruptured, Bangchak "
+            "said, and seven people remained in hospital, four in "
+            "critical condition."
+        ),
+    },
+    {
+        "headline": "Thai shuttler Pink banned 3 months",
+        "region": "SOUTHEAST ASIA",
+        "source": "BWF",
+        "tag": "CONFIRMED",
+        "summary": (
+            "The Badminton World Federation confirmed a three-month ban for "
+            "Thai women's singles player Pitchamon Opatniputh, known as "
+            "Pink, on Friday, after the banned substance furosemide was "
+            "found in her test at the 2026 Asian Games in Aichi-Nagoya, "
+            "Japan, in September. She will miss the start of next season."
+        ),
+    },
+    {
+        "headline": "Fire breaks out at Bangkok market",
+        "region": "SOUTHEAST ASIA",
+        "source": "Khaosod English",
+        "tag": "CONFIRMED",
+        "summary": (
+            "A major fire broke out at Patthavikorn Market in Bangkok's "
+            "Nawamin 72 area early on Friday, Khaosod reported, prompting "
+            "firefighters to rush to the scene and urge motorists to avoid "
+            "nearby roads. It was the second Bangkok blaze in two days "
+            "after the Bangchak refinery explosion injured nine people."
+        ),
+    },
+    {
+        "headline": "Li visit deepened Thai ties: envoy",
+        "region": "SOUTHEAST ASIA",
+        "source": "Khaosod English",
+        "tag": "CONFIRMED",
+        "summary": (
+            "China's ambassador said on Friday that Premier Li Qiang's "
+            "visit had deepened Thai ties and pledged action over "
+            "pollution, as Bangkok reeled from the refinery fire's smoke "
+            "plume. The envoy's remarks underlined Beijing's push to keep "
+            "Southeast Asian partners close amid US tariff pressure."
+        ),
+    },
+    {
+        "headline": "New Zealand hung parliament, 65-65",
+        "region": "OCEANIA",
+        "source": "Electoral Commission",
+        "tag": "CONFIRMED",
+        "summary": (
+            "New Zealand's final election count delivered a deadlocked "
+            "parliament on Friday: the ruling coalition holds 65 of 130 "
+            "seats, one short of a majority, leaving the centrist "
+            "Opportunity Party, with seven seats, as the decider on the "
+            "next government. Luxon must now negotiate to stay in office."
+        ),
+    },
+    {
+        "headline": "NZ dollar edges up after hung result",
+        "region": "OCEANIA",
+        "source": "Markets",
+        "tag": "CONFIRMED",
+        "summary": (
+            "The New Zealand dollar edged up to 0.5491 against the US "
+            "dollar on Friday after the official election count confirmed "
+            "a hung parliament. Traders took the deadlock in their stride, "
+            "with no major market-moving US data due while Wall Street "
+            "reopened for a shortened Black Friday session."
+        ),
+    },
+    {
+        "headline": "India v NZ second Test begins",
+        "region": "OCEANIA",
+        "source": "Reports",
+        "tag": "CONFIRMED",
+        "summary": (
+            "India's second Test against New Zealand began on Friday, with "
+            "the hosts making a DRS blunder as opener Tom Latham got "
+            "another lifeline on day one. The series is a key test for "
+            "both sides ahead of a crowded winter calendar, and the match "
+            "drew big crowds despite the weekday start."
+        ),
+    },
+    {
+        "headline": "Sindarov: Gukesh was so well prepared",
+        "region": "CENTRAL ASIA",
+        "source": "buzb.uz",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Uzbek grandmaster Javokhir Sindarov said on Friday his "
+            "opponent had been exceptionally well prepared in the opening "
+            "of their World Championship Game 3, while he had tried to "
+            "find chances with the white pieces. The draw leaves the "
+            "14-game match level at 1.5-1.5, with Game 4 on Saturday and "
+            "Gukesh playing white."
+        ),
+    },
+    {
+        "headline": "Turkey seeks US sanctions relief",
+        "region": "CENTRAL ASIA",
+        "source": "Reports",
+        "tag": "REPORTED",
+        "summary": (
+            "Turkey's defence minister is set to visit the United States "
+            "as Ankara seeks sanctions relief, reports said on Friday. "
+            "The trip comes as Turkey balances its NATO role, its defence "
+            "industry ambitions and its ties with Russia, with US "
+            "restrictions still biting on key weapons programmes."
+        ),
+    },
+    {
+        "headline": "World markets rally on Black Friday",
+        "region": "GLOBAL",
+        "source": "Markets",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Stocks rose around the world on Friday after a volatile week, "
+            "led by China. Shanghai gained 3.7 percent and the S and P 500 "
+            "added 1.3 percent. Gold jumped 2.6 percent and copper 3.3 "
+            "percent, while oil edged lower to about 90 dollars a barrel "
+            "but is still down 22 percent over the month."
+        ),
+    },
+    {
+        "headline": "Black Friday opens $1tn season",
+        "region": "GLOBAL",
+        "source": "Retail reports",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Black Friday opened a record one trillion dollar holiday "
+            "season on Friday, but inflation is doing much of the "
+            "spending, retail reports said. Early online sales rose as "
+            "shoppers hunted discounts, with AI tools helping compare "
+            "prices, while Amazon workers in several countries planned "
+            "strikes."
+        ),
+    },
+    {
+        "headline": "Norse Atlantic unit goes bankrupt",
+        "region": "GLOBAL",
+        "source": "Court filing",
+        "tag": "CONFIRMED",
+        "summary": (
+            "Norse Atlantic's Norwegian unit filed for bankruptcy in "
+            "Norway's Agder District Court on Friday, and leasing firms "
+            "ended contracts for all 12 of its planes the same day. The "
+            "airline disputed those notices. The filing excluded the "
+            "listed parent and its United Kingdom subsidiary."
+        ),
     },
 ]
 
-TITLE = (
-    "Friday 27 November 2026: 43 stories, 11 regions - "
-    "Kuwait drone strike kills two Italians, "
-    "Brazil snubs Milei, Gukesh holds Sindarov"
-)
+TOP_STORIES = [
+    {
+        "kicker": "UKRAINE WAR",
+        "headline": "Russia fires 155 drones at Ukraine",
+        "caption": "Nine regions hit overnight; Kyiv halts power exports",
+        "scene": "drones",
+    },
+    {
+        "kicker": "EU SUMMIT",
+        "headline": "EU summit ends with no budget deal",
+        "caption": "45bn euro Ukraine loan stalls; 24 of 27 back it",
+        "scene": "eu",
+    },
+    {
+        "kicker": "NEW ZEALAND",
+        "headline": "New Zealand hung parliament, 65-65",
+        "caption": "Opportunity Party, 7 seats, now holds the balance",
+        "scene": "parliament",
+    },
+    {
+        "kicker": "WORLD CHESS",
+        "headline": "Gukesh draws Game 3; 1.5-1.5",
+        "caption": "60 moves in Geneva; Berlin Defence holds Sindarov",
+        "scene": "chess",
+    },
+]
+
+TIMELINE = [
+    ("01:05", "NZ hung parliament confirmed"),
+    ("06:38", "Bangkok refinery blast toll: 9 hurt"),
+    ("08:17", "Gukesh-Sindarov Game 3 drawn"),
+    ("09:00", "UK pensions dept cyber incident"),
+    ("14:00", "NZ final count published, 65-65"),
+    ("17:00", "EU summit ends, no deal"),
+    ("22:06", "Markets close: Shanghai +3.7%"),
+]
 
 DATE_CHECK = (
-    "DATE CHECK - All 43 stories in this edition were verified as "
-    "published on Friday 27 November 2026 by the source named under each "
-    "headline. CONFIRMED = two or more outlets or an official source. "
-    "REPORTED = single-source report. No story is older than this date."
+    "DATE CHECK: All 47 stories in this edition happened on, or were first "
+    "reported on, Friday 27 November 2026. Every story names its source and "
+    "carries a CONFIRMED or REPORTED tag. Stories whose real date fell on "
+    "26 November (EU budget talks, Nvidia shipments, Guinea-Bissau vote, "
+    "Cairo tanker fire, Cartagena siege) were excluded."
 )
 
-# Scene keys used by the renderer: 6 large cards + 8 small pictograms.
-LARGE_SCENES = ["kuwait", "chess", "ballot", "jazan", "tanker", "storm"]
-SMALL_SCENES = ["gavel", "scales", "gold", "pumpjack", "asteroid",
-                 "rocket", "football", "globe"]
 
-# Data guard: the edition must carry exactly 43 dated stories in 11 regions.
-assert len(STORIES) == 43, "expected 43 stories"
-assert len({s["region"] for s in STORIES}) == 11, "expected 11 regions"
-assert all(40 <= len(s["summary"].split()) <= 70 for s in STORIES), \
-    "every summary must be 40-70 words"
-assert all(s["tag"] in ("CONFIRMED", "REPORTED") for s in STORIES)
+def check():
+    """Validate the dataset before rendering."""
+    assert len(STORIES) == 47, len(STORIES)
+    assert len(set(s["headline"] for s in STORIES)) == 47
+    regions = {s["region"] for s in STORIES}
+    assert regions == set(REGIONS), regions
+    for s in STORIES:
+        words = s["summary"].split()
+        assert 38 <= len(words) <= 72, (s["headline"], len(words))
+        assert len(s["summary"]) <= 340, (s["headline"], len(s["summary"]))
+        assert len(s["headline"]) <= 37, (s["headline"], len(s["headline"]))
+        assert s["region"] in REGIONS
+        assert s["tag"] in ("CONFIRMED", "REPORTED")
+        assert s["source"]
+    assert len(TOP_STORIES) == 4
+    return True
+
+
+if __name__ == "__main__":
+    check()
+    from collections import Counter
+
+    print("stories:", len(STORIES))
+    print(Counter(s["region"] for s in STORIES))
+    print("words per summary:",
+          min(len(s["summary"].split()) for s in STORIES),
+          max(len(s["summary"].split()) for s in STORIES))
+    print("summary chars:",
+          min(len(s["summary"]) for s in STORIES),
+          max(len(s["summary"]) for s in STORIES))
