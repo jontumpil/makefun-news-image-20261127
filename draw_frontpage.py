@@ -1,7 +1,9 @@
-# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r4).
+# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r5).
 # Pure standard library: hand-built 5x7 bitmap font, raw PNG encoder
 # (zlib + struct, no Pillow, no third-party code). Deterministic output:
 # same input data always yields the same bytes.
+# r5 layout: 40 stories instead of 57, so each story gets a 2px
+# breathing gap below it (r4 squeezed stories together with 1px).
 
 import struct
 import zlib
@@ -551,9 +553,8 @@ def story_height(story, text_w):
     sm = wrap_text(story["summary"], chars)
     # Headline lines (7px pitch, bold caps sit tight) + summary lines
     # at 7px pitch (glyphs are 7px tall; lines touch but never
-    # overlap) + source (7px) + gap (1px). Stories are separated by
-    # the 1px gap alone, no rule line.
-    return len(hl) * 7 + len(sm) * 7 + 7 + 1
+    # overlap) + source (7px) + breathing gap (2px).
+    return len(hl) * 7 + len(sm) * 7 + 7 + 2
 
 
 def _adjusted_heights(stories, text_w):
@@ -646,7 +647,7 @@ def render_page():
 
     # --- DATE CHECK + map + timeline strip -------------------------------
     strip_y = y
-    strip_h = 70
+    strip_h = 68
     cv.rect(12, strip_y, W - 24, strip_h, LIGHT)
     cv.rect(12, strip_y, W - 24, 1, INK)
     cv.rect(12, strip_y + strip_h - 1, W - 24, 1, INK)
@@ -736,7 +737,7 @@ def render_page():
             cv.text(cx + 2, hy, story["source"] + " - " + story["tag"],
                     scale=1, color=GREY, adv=5)
             hy += 7
-            cy = hy + 1
+            cy = hy + 2
         max_h = max(max_h, cy - stories_top)
 
     stats = {
