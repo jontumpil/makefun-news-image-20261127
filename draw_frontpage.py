@@ -1,9 +1,10 @@
-# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r5).
+# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r6).
 # Pure standard library: hand-built 5x7 bitmap font, raw PNG encoder
 # (zlib + struct, no Pillow, no third-party code). Deterministic output:
 # same input data always yields the same bytes.
-# r5 layout: 40 stories instead of 57, so each story gets a 2px
-# breathing gap below it (r4 squeezed stories together with 1px).
+# r5 layout kept for r6: 40 stories instead of 57, so each story
+# gets a 2px breathing gap below it (r4 squeezed stories together
+# with 1px). r6 changes only the words, not the layout.
 
 import struct
 import zlib
