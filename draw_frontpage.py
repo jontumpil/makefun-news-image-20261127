@@ -1,4 +1,4 @@
-# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r3).
+# draw_frontpage.py — renders THE WORLD IN ONE DAY (news-image-20261127 r4).
 # Pure standard library: hand-built 5x7 bitmap font, raw PNG encoder
 # (zlib + struct, no Pillow, no third-party code). Deterministic output:
 # same input data always yields the same bytes.
@@ -8,6 +8,7 @@ import zlib
 
 from stories import (
     DATE_CHECK,
+    PICTURES,
     REGIONS,
     STORIES,
     TIMELINE,
@@ -289,7 +290,7 @@ def draw_drones(cv, x, y, w, h):
     for bx in range(x, y + h - 14, 3):
         pass
     # City skyline.
-    heights = [16, 22, 12, 26, 18, 28, 14, 20, 11, 24, 16, 19]
+    heights = [16, 22, 12, 26, 18, 24, 14, 20, 11, 24, 16, 19]
     bx = x + 4
     for i, bh in enumerate(heights):
         bw = max(8, (w - 8) // len(heights) - 2)
@@ -352,7 +353,7 @@ def draw_parliament(cv, x, y, w, h):
 
 def draw_chess(cv, x, y, w, h):
     cv.rect(x, y, w, h, (96, 64, 32))
-    sq = max(3, (h - 18) // 8)
+    sq = max(2, (h - 18) // 8)
     ox = x + (w - 8 * sq) // 2
     oy = y + 2
     for r in range(8):
@@ -380,6 +381,154 @@ SCENES = {
     "chess": draw_chess,
 }
 
+# ------------------------------------------- picture-desk mini scenes
+# Nine small panorama tiles (about 106x22) for the DAY IN PICTURES band.
+# Same primitives as the big scenes; shapes stay bold and simple so they
+# read at tile size.
+
+
+def draw_storm(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (34, 40, 58))
+    for cx, cy, r in [(x + 16, y + 5, 6), (x + 30, y + 4, 7),
+                      (x + w - 30, y + 4, 7), (x + w - 16, y + 5, 6)]:
+        cv.circle(cx, cy, r, (92, 98, 112))
+    mx = x + w // 2
+    cv.line(mx, y + 3, mx - 4, y + 11, GOLD)
+    cv.line(mx - 4, y + 11, mx + 1, y + 11, GOLD)
+    cv.line(mx + 1, y + 11, mx - 5, y + h - 2, GOLD)
+    for rx in range(x + 6, x + w - 4, 12):
+        cv.line(rx, y + h - 7, rx - 2, y + h - 3, (140, 165, 200))
+    cv.rect(x, y + h - 2, w, 2, (10, 12, 20))
+
+
+def draw_parade(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (165, 200, 232))
+    cv.circle(x + 28, y + 10, 9, RED)
+    cv.vline(x + 24, y + 2, 16, (255, 255, 255))
+    cv.vline(x + 32, y + 2, 16, (255, 255, 255))
+    cv.line(x + 24, y + 17, x + 27, y + h - 3, INK)
+    cv.line(x + 32, y + 17, x + 29, y + h - 3, INK)
+    cv.rect(x + 25, y + h - 4, 7, 3, (120, 80, 40))
+    cv.circle(x + w - 24, y + 8, 6, GOLD)
+    cv.line(x + w - 27, y + 13, x + w - 25, y + h - 3, INK)
+    cv.line(x + w - 21, y + 13, x + w - 23, y + h - 3, INK)
+    cv.rect(x + w - 28, y + h - 4, 7, 3, (120, 80, 40))
+    cv.rect(x, y + h - 2, w, 2, (90, 95, 105))
+
+
+def draw_tanker(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (150, 190, 220))
+    cv.rect(x, y + h - 8, w, 8, (28, 74, 118))
+    cv.rect(x + 14, y + h - 12, w - 28, 4, (30, 30, 34))
+    for i, col in enumerate([RED, BLUE, GOLD, GREEN]):
+        cv.rect(x + 20 + i * 12, y + h - 16, 10, 4, col)
+    cv.vline(x + w // 2, y + 3, 8, (30, 30, 34))
+    mx, my = x + w - 18, y + h - 5
+    cv.circle(mx, my, 3, INK)
+    for dx, dy in [(-5, 0), (5, 0), (0, -5), (-4, -4), (4, -4)]:
+        cv.line(mx, my, mx + dx, my + dy, INK)
+    for wx in range(x + 4, x + w - 8, 16):
+        cv.hline(wx, y + h - 3, 7, (200, 225, 245))
+
+
+def draw_virus(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (44, 32, 44))
+    cx, cy = x + w // 2, y + h // 2
+    for k in range(8):
+        ang = k * 3.14159 / 4.0
+        x1 = int(cx + 11 * _cos(ang))
+        y1 = int(cy + 9 * _sin(ang))
+        cv.line(cx, cy, x1, y1, (120, 170, 80))
+        cv.circle(x1, y1, 2, (120, 170, 80))
+    cv.circle(cx, cy, 6, (120, 170, 80))
+    cv.circle(cx - 2, cy - 1, 2, (70, 110, 50))
+    cv.rect(x + w - 13, y + 3, 7, 2, (235, 235, 235))
+    cv.rect(x + w - 11, y + 1, 2, 7, (235, 235, 235))
+
+
+def draw_chart(cv, x, y, w, h):
+    cv.rect(x, y, w, h, DARK)
+    cv.vline(x + 6, y + 2, h - 4, GREY)
+    cv.hline(x + 6, y + h - 3, w - 10, GREY)
+    for i, bh in enumerate([4, 7, 10, 14]):
+        cv.rect(x + 12 + i * 16, y + h - 3 - bh, 9, bh, GREEN)
+    pts = [(x + 16, y + h - 8), (x + 32, y + h - 11),
+           (x + 48, y + h - 14), (x + 64, y + h - 18),
+           (x + 84, y + 4)]
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        cv.line(ax, ay, bx, by, GOLD)
+    cv.line(x + 84, y + 4, x + 78, y + 5, GOLD)
+    cv.line(x + 84, y + 4, x + 83, y + 10, GOLD)
+
+
+def draw_fire(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (56, 44, 38))
+    cv.rect(x + 8, y + 5, 28, h - 5, (30, 28, 30))
+    for wy in (y + 8, y + 13):
+        for wx in (x + 12, x + 20, x + 28):
+            cv.rect(wx, wy, 3, 3, (240, 200, 90))
+    fx, fy = x + w - 28, y + h - 8
+    cv.circle(fx, fy, 7, (235, 110, 30))
+    cv.circle(fx - 3, fy - 4, 5, (245, 160, 40))
+    cv.circle(fx - 3, fy - 5, 3, (255, 225, 130))
+    cv.circle(fx + 8, fy - 10, 4, (130, 125, 120))
+    cv.circle(fx + 13, fy - 13, 3, (150, 145, 140))
+
+
+def draw_bank(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (206, 196, 168))
+    cx = x + w // 2
+    for i in range(7):
+        cv.hline(cx - 21 + i * 3, y + 2 + i, 42 - i * 6, (150, 120, 60))
+    for i in range(4):
+        cv.rect(x + 16 + i * 20, y + 10, 5, h - 14, (245, 242, 235))
+    cv.rect(x + 10, y + h - 4, w - 20, 2, (150, 120, 60))
+    cv.rect(x + 6, y + h - 2, w - 12, 2, (120, 95, 48))
+
+
+def draw_chip(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (22, 38, 30))
+    bx, by, bw, bh = x + w // 2 - 13, y + 3, 26, h - 6
+    cv.rect(bx, by, bw, bh, (40, 44, 48))
+    cv.rect(bx + 4, by + 3, bw - 8, 1, GOLD)
+    cv.rect(bx + 4, by + bh - 4, bw - 8, 1, GOLD)
+    cv.rect(bx + 4, by + 3, 1, bh - 6, GOLD)
+    cv.rect(bx + bw - 5, by + 3, 1, bh - 6, GOLD)
+    for i in range(3):
+        px = bx + 5 + i * 7
+        cv.rect(px, by - 2, 2, 2, (190, 195, 200))
+        cv.rect(px, by + bh, 2, 2, (190, 195, 200))
+        py = by + 3 + i * 5
+        cv.rect(bx - 2, py, 2, 2, (190, 195, 200))
+        cv.rect(bx + bw, py, 2, 2, (190, 195, 200))
+    cv.line(bx - 2, y + h // 2, x + 8, y + h // 2, GOLD)
+    cv.line(bx + bw + 2, y + h // 2, x + w - 8, y + h // 2, GOLD)
+
+
+def draw_treaty(cv, x, y, w, h):
+    cv.rect(x, y, w, h, (150, 190, 220))
+    cv.circle(x + w - 14, y + 6, 4, GOLD)
+    cv.rect(x, y + h - 4, w, 4, (28, 74, 118))
+    for px, col in [(x + 26, (110, 160, 220)), (x + w - 40, (28, 52, 110))]:
+        cv.vline(px, y + 5, h - 9, (60, 50, 40))
+        cv.rect(px + 1, y + 5, 14, 8, col)
+        cv.px(px + 4, y + 7, (255, 255, 255))
+        cv.px(px + 8, y + 9, (255, 255, 255))
+        cv.px(px + 11, y + 7, (255, 255, 255))
+
+
+MINIS = {
+    "storm": draw_storm,
+    "parade": draw_parade,
+    "tanker": draw_tanker,
+    "virus": draw_virus,
+    "chart": draw_chart,
+    "fire": draw_fire,
+    "bank": draw_bank,
+    "chip": draw_chip,
+    "treaty": draw_treaty,
+}
+
 # ------------------------------------------------------------- map + layout
 # Schematic continents as (x, y, w, h) blocks on a 360x64 map.
 CONTINENTS = [
@@ -400,10 +549,11 @@ def story_height(story, text_w):
     chars = text_w // 5
     hl = wrap_text(story["headline"], chars)
     sm = wrap_text(story["summary"], chars)
-    # Headline lines (8px pitch) + summary lines at 7px pitch (glyphs are
-    # 7px tall; lines touch but never overlap) + source (7px) + gap (1px).
-    # Stories are separated by the 1px gap alone, no rule line.
-    return len(hl) * 8 + len(sm) * 7 + 7 + 1
+    # Headline lines (7px pitch, bold caps sit tight) + summary lines
+    # at 7px pitch (glyphs are 7px tall; lines touch but never
+    # overlap) + source (7px) + gap (1px). Stories are separated by
+    # the 1px gap alone, no rule line.
+    return len(hl) * 7 + len(sm) * 7 + 7 + 1
 
 
 def _adjusted_heights(stories, text_w):
@@ -415,7 +565,7 @@ def _adjusted_heights(stories, text_w):
     for s in stories:
         h = story_height(s, text_w)
         if s["region"] != prev:
-            h += 11
+            h += 10
             prev = s["region"]
         heights.append(h)
     return heights
@@ -463,19 +613,19 @@ def render_page():
     cv.rect(W - 3, 0, 3, H, INK)
 
     # --- Masthead -------------------------------------------------------
-    cv.rect(8, 8, W - 16, 36, DARK)
-    cv.text_center(12, "THE WORLD IN ONE DAY", scale=4, color=(255, 255, 255),
+    cv.rect(8, 6, W - 16, 30, DARK)
+    cv.text_center(7, "THE WORLD IN ONE DAY", scale=4, color=(255, 255, 255),
                    adv=6)
 
     # --- Title formula line (carries the date, so no separate dateline) --
-    y = 52
+    y = 42
     for line in wrap_text(TITLE, 158):
         cv.text(12, y, line, scale=1, color=INK, adv=6, bold=True)
-        y += 10
+        y += 9
 
     # --- Top illustrated cards ------------------------------------------
     card_y = y
-    card_h = 76
+    card_h = 70
     card_w = (W - 24 - 3 * 6) // 4
     for i, top in enumerate(TOP_STORIES):
         cx = 12 + i * (card_w + 6)
@@ -484,19 +634,19 @@ def render_page():
         cv.rect(cx, card_y + card_h - 1, card_w, 1, INK)
         cv.rect(cx, card_y, 1, card_h, INK)
         cv.rect(cx + card_w - 1, card_y, 1, card_h, INK)
-        SCENES[top["scene"]](cv, cx + 3, card_y + 3, card_w - 6, 40)
-        cv.text(cx + 4, card_y + 46, top["kicker"], scale=1, color=RED,
+        SCENES[top["scene"]](cv, cx + 3, card_y + 3, card_w - 6, 34)
+        cv.text(cx + 4, card_y + 42, top["kicker"], scale=1, color=RED,
                 adv=5, bold=True)
-        hy = card_y + 56
+        hy = card_y + 52
         for line in wrap_text(top["headline"], (card_w - 8) // 5):
             cv.text(cx + 4, hy, line, scale=1, color=INK, adv=5, bold=True)
             hy += 9
         cv.text(cx + 4, hy, top["caption"], scale=1, color=GREY, adv=5)
-    y = card_y + card_h + 4
+    y = card_y + card_h + 3
 
     # --- DATE CHECK + map + timeline strip -------------------------------
     strip_y = y
-    strip_h = 72
+    strip_h = 70
     cv.rect(12, strip_y, W - 24, strip_h, LIGHT)
     cv.rect(12, strip_y, W - 24, 1, INK)
     cv.rect(12, strip_y + strip_h - 1, W - 24, 1, INK)
@@ -528,13 +678,37 @@ def render_page():
         cv.circle(mx + px, my + py, 2, RED)
     cv.text(mx, my + 58, "RED DOTS: TOP STORY REGIONS", scale=1,
             color=GREY, adv=5)
-    y = strip_y + strip_h + 4
+    y = strip_y + strip_h + 3
+
+    # --- DAY IN PICTURES band: 9 mini scenes ----------------------------
+    band_y = y
+    cv.text(12, band_y, "THE DAY IN PICTURES", scale=1, color=RED, adv=5,
+            bold=True)
+    note = "13 DRAWN SCENES IN ALL: 4 CARDS + 9 TILES"
+    cv.text(W - 12 - text_width(note, 1, 5), band_y, note, scale=1,
+            color=GREY, adv=5)
+    tile_y = band_y + 10
+    tile_w = (W - 16 - 8 * 2) // 9
+    tile_h = 33
+    for i, (key, caption) in enumerate(PICTURES):
+        tx = 8 + i * (tile_w + 2)
+        cv.rect(tx, tile_y, tile_w, tile_h, (255, 255, 255))
+        cv.rect(tx, tile_y, tile_w, 1, INK)
+        cv.rect(tx, tile_y + tile_h - 1, tile_w, 1, INK)
+        cv.rect(tx, tile_y, 1, tile_h, INK)
+        cv.rect(tx + tile_w - 1, tile_y, 1, tile_h, INK)
+        MINIS[key](cv, tx + 2, tile_y + 2, tile_w - 4, tile_h - 13)
+        cv.rect(tx + 1, tile_y + tile_h - 10, tile_w - 2, 9, DARK)
+        cw = text_width(caption, 1, 5)
+        cv.text(tx + (tile_w - cw) // 2, tile_y + tile_h - 9, caption,
+                scale=1, color=(255, 255, 255), adv=5, bold=True)
+    y = tile_y + tile_h + 3
 
     # --- Stories in 5 balanced columns -----------------------------------
     stories_top = y
-    stories_h = H - 12 - stories_top
+    stories_h = H - 7 - stories_top
     ncols = 5
-    col_w = (W - 24 - (ncols - 1) * 4) // ncols
+    col_w = (W - 16 - (ncols - 1) * 2) // ncols
     text_w = col_w - 4
     cols = balance_columns(STORIES, ncols, text_w)
     max_h = 0
@@ -542,20 +716,20 @@ def render_page():
     # draws no header, exactly matching the +12 in _adjusted_heights.
     prev_region = None
     for ci, col in enumerate(cols):
-        cx = 12 + ci * (col_w + 4)
+        cx = 8 + ci * (col_w + 2)
         cy = stories_top
         for story, sh in col:
             if story["region"] != prev_region:
                 cv.rect(cx, cy, col_w, 10, DARK)
                 cv.text(cx + 3, cy + 2, story["region"], scale=1,
                         color=(255, 255, 255), adv=5, bold=True)
-                cy += 11
+                cy += 10
                 prev_region = story["region"]
             hy = cy
             for line in wrap_text(story["headline"], text_w // 5):
                 cv.text(cx + 2, hy, line, scale=1, color=INK, adv=5,
                         bold=True)
-                hy += 8
+                hy += 7
             for line in wrap_text(story["summary"], text_w // 5):
                 cv.text(cx + 2, hy, line, scale=1, color=INK, adv=5)
                 hy += 7
@@ -569,6 +743,7 @@ def render_page():
         "stories": len(STORIES),
         "regions": len({s["region"] for s in STORIES}),
         "cards": len(TOP_STORIES),
+        "scenes": len(TOP_STORIES) + len(PICTURES),
         "max_column_height": max_h,
         "stories_area_height": stories_h,
         "overflow": max_h > stories_h,
