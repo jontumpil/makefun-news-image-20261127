@@ -1,4 +1,4 @@
-# main.py — THE WORLD IN ONE DAY, Friday 27 November 2026 (r4).
+# main.py — THE WORLD IN ONE DAY, Friday 27 November 2026 (r5).
 # Pure standard library. Renders the front page and writes it ONLY to
 # MAKEFUN_OUTPUT_DIR (the grader runs in a read-only repo as nobody, so
 # nothing may be written beside this script).
@@ -24,4 +24,4 @@ assert os.path.commonpath(
 ) == os.path.abspath(out_dir), out_path
 with open(out_path, "wb") as fh:
     fh.write(png)
-print("wrote", out_path, len(png), "bytes", stats)
+print("wrote", out_path, len(png), "bytes (r5)", stats)
