@@ -1,6 +1,5 @@
-SPDX-License-Identifier: MIT
-
 MIT License
+SPDX-License-Identifier: MIT
 
 Copyright (c) 2026 jontumpil
 
@@ -22,4 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-This license applies to the news-image-20261127 entry by jontumpil.
+The entry image rendered by this software is original work by the author,
+drawn procedurally with the standard library; it copies no photograph or
+artwork belonging to anyone else.
