@@ -1,4 +1,4 @@
-# main.py — THE WORLD IN ONE DAY, Friday 27 November 2026 (r3).
+# main.py — THE WORLD IN ONE DAY, Friday 27 November 2026 (r4).
 # Pure standard library. Renders the front page and writes it ONLY to
 # MAKEFUN_OUTPUT_DIR (the grader runs in a read-only repo as nobody, so
 # nothing may be written beside this script).
